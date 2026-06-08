@@ -17,7 +17,7 @@ from google.genai import types
 
 load_dotenv()
 
-GEMINI_MODEL = "gemini-2.0-flash"
+GEMINI_MODEL = "gemini-2.5-flash"
 
 # Cross-platform MCP binary path
 # On Windows: %APPDATA%\npm\mcp-server-elasticsearch.cmd
