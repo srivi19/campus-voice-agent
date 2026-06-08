@@ -183,15 +183,17 @@ def tool_to_function_declaration(tool):
 
 def ask(question: str) -> str:
     mcp = MCPClient()
+    start_time = time.time()
     try:
         mcp.start()
 
         tools = mcp.list_tools()
         print(f"  🔌 Elastic MCP tools: {[t['name'] for t in tools]}")
 
+        # Guard against empty tool list — passing empty Tool to Gemini errors
         gemini_tools = [
             types.Tool(function_declarations=[tool_to_function_declaration(t) for t in tools])
-        ]
+        ] if tools else None
 
         client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
         messages = [
@@ -201,7 +203,14 @@ def ask(question: str) -> str:
             )
         ]
 
-        for _ in range(6):
+        for iteration in range(8):
+            # Hard time budget — leave headroom before Cloud Run's 300s kills the request
+            if time.time() - start_time > 85:
+                break
+
+            # After 4 tool rounds, stop offering tools so Gemini must produce text
+            use_tools = gemini_tools if iteration < 5 else None
+
             # Retry on 503 UNAVAILABLE with backoff
             response = None
             for attempt in range(3):
@@ -209,7 +218,7 @@ def ask(question: str) -> str:
                     response = client.models.generate_content(
                         model=GEMINI_MODEL,
                         contents=messages,
-                        config=types.GenerateContentConfig(tools=gemini_tools),
+                        config=types.GenerateContentConfig(tools=use_tools),
                     )
                     break
                 except Exception as e:
@@ -228,7 +237,11 @@ def ask(question: str) -> str:
 
             function_calls = [p for p in parts if p.function_call]
             if not function_calls:
-                return "\n".join(p.text for p in parts if hasattr(p, "text") and p.text)
+                # Filter out Gemini 2.5 Flash internal "thinking" parts before returning
+                return "\n".join(
+                    p.text for p in parts
+                    if hasattr(p, "text") and p.text and not getattr(p, "thought", False)
+                )
 
             tool_results = []
             for part in function_calls:
@@ -243,10 +256,10 @@ def ask(question: str) -> str:
                         )
                     )
                 )
-
+            # function_response parts only — never mix text into this Content
             messages.append(types.Content(role="user", parts=tool_results))
 
-        return "Could not generate a final answer."
+        return "I searched but couldn't find enough information to answer that question clearly."
 
     finally:
         mcp.close()
