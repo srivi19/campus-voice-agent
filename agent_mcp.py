@@ -218,11 +218,7 @@ def ask(question: str) -> str:
                     response = client.models.generate_content(
                         model=GEMINI_MODEL,
                         contents=messages,
-                        config=types.GenerateContentConfig(
-                            tools=use_tools,
-                            # Disable thinking mode — it produces empty parts and unpredictable behavior
-                            thinking_config=types.ThinkingConfig(thinking_budget=0),
-                        ),
+                        config=types.GenerateContentConfig(tools=use_tools),
                     )
                     break
                 except Exception as e:
@@ -235,17 +231,22 @@ def ask(question: str) -> str:
 
             candidate = response.candidates[0] if response.candidates else None
             if not candidate or not candidate.content or not candidate.content.parts:
-                return "I couldn't generate a response — please try rephrasing your question."
+                # Empty/None response — retry next iteration rather than giving up
+                continue
             parts = candidate.content.parts
             messages.append(types.Content(role="model", parts=parts))
 
             function_calls = [p for p in parts if p.function_call]
             if not function_calls:
                 # Filter out Gemini 2.5 Flash internal "thinking" parts before returning
-                return "\n".join(
+                text = "\n".join(
                     p.text for p in parts
                     if hasattr(p, "text") and p.text and not getattr(p, "thought", False)
                 )
+                if text:
+                    return text
+                # All parts were internal thoughts with no text — retry next iteration
+                continue
 
             tool_results = []
             for part in function_calls:
