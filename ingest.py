@@ -15,7 +15,7 @@ import google.genai.types as types
 load_dotenv()
 
 INDEX_NAME = "campus_reviews"
-DATA_PATH = "data/reviews.json"
+DATA_PATHS = ["data/reviews.json"]
 BATCH_SIZE = 20  # embeddings per API call
 EMBEDDING_MODEL = "models/gemini-embedding-2"
 
@@ -54,10 +54,18 @@ def build_doc_text(review):
 
 
 def ingest():
-    print("Loading reviews...")
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
-        reviews = json.load(f)
-    print(f"  {len(reviews)} reviews loaded")
+    print("Loading reviews from all sources...")
+    reviews = []
+    for path in DATA_PATHS:
+        if not os.path.exists(path):
+            print(f"  Skipping {path} — file not found")
+            continue
+        with open(path, "r", encoding="utf-8") as f:
+            batch = json.load(f)
+        print(f"  {len(batch):5} reviews from {path}")
+        reviews.extend(batch)
+    print(f"  ─────────────────────────────")
+    print(f"  {len(reviews):5} total reviews loaded")
 
     es = get_es_client()
     gemini = get_gemini_client()
