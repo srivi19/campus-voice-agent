@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusVoice — Student Sentiment Agent</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e8eaf0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a1f2e 0%, #0d1b2a 100%);
+      border-bottom: 1px solid #1e3a5f;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    header .logo { font-size: 28px; }
+    header h1 { font-size: 22px; font-weight: 700; color: #fff; }
+    header p { font-size: 13px; color: #7ea8c9; margin-top: 2px; }
+    .badge {
+      margin-left: auto;
+      background: #1a3a5c;
+      border: 1px solid #2a5a8c;
+      color: #5ba3d9;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ── School Filter ── */
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px solid #2a3a50;
+      background: #151c28;
+      color: #8fa8c8;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: #3a6ea8; color: #fff; }
+    .filter-btn.active {
+      background: #1a4a7a;
+      border-color: #2a7abf;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* ── Example chips ── */
+    .examples-label { font-size: 12px; color: #5a7a9a; text-transform: uppercase; letter-spacing: 0.08em; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: #151c28;
+      border: 1px solid #1e3050;
+      color: #7ea8c9;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip:hover { background: #1a3050; border-color: #2a5a8c; color: #fff; }
+
+    /* ── Chat window ── */
+    .chat-window {
+      flex: 1;
+      min-height: 300px;
+      max-height: 480px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 4px 2px;
+    }
+    .chat-window:empty::before {
+      content: "Ask a question to get started.";
+      color: #3a5070;
+      font-size: 14px;
+      align-self: center;
+      margin-top: 80px;
+    }
+
+    /* ── Messages ── */
+    .msg { display: flex; gap: 12px; align-items: flex-start; }
+    .msg.user { flex-direction: row-reverse; }
+    .avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .msg.user .avatar { background: #1a4a7a; }
+    .msg.bot .avatar { background: #1a3a2a; }
+    .bubble {
+      max-width: 78%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .msg.user .bubble {
+      background: #1a3a5c;
+      border-radius: 16px 4px 16px 16px;
+      color: #ddeeff;
+    }
+    .msg.bot .bubble {
+      background: #151c28;
+      border: 1px solid #1e3050;
+      border-radius: 4px 16px 16px 16px;
+      color: #d0dce8;
+    }
+
+    /* markdown-ish rendering */
+    .bubble strong { color: #7ec8e3; }
+    .bubble em { color: #a8c8e8; font-style: italic; }
+
+    /* ── Typing indicator ── */
+    .typing .bubble { padding: 14px 18px; }
+    .dots { display: flex; gap: 5px; }
+    .dots span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #3a6ea8;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+    .dots span:nth-child(2) { animation-delay: 0.2s; }
+    .dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-7px); }
+    }
+
+    /* ── Input bar ── */
+    .input-row {
+      display: flex;
+      gap: 10px;
+      background: #151c28;
+      border: 1px solid #1e3050;
+      border-radius: 12px;
+      padding: 10px 14px;
+      align-items: center;
+    }
+    .input-row input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #e8eaf0;
+      font-size: 14px;
+    }
+    .input-row input::placeholder { color: #3a5070; }
+    .send-btn {
+      background: #1a5a9a;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .send-btn:hover { background: #2a7abf; }
+    .send-btn:disabled { background: #1a3050; color: #3a5070; cursor: not-allowed; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #2a4060;
+      padding: 12px;
+    }
+    footer a { color: #3a6ea8; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🎓</div>
+  <div>
+    <h1>CampusVoice</h1>
+    <p>Student sentiment agent — powered by Gemini + Elasticsearch</p>
+  </div>
+  <div class="badge">⚡ Gemini + Elastic MCP</div>
+</header>
+
+<div class="container">
+
+  <!-- School filter -->
+  <div class="filter-row">
+    <button class="filter-btn active" data-school="">Both schools</button>
+    <button class="filter-btn" data-school="utk">UTK only</button>
+    <button class="filter-btn" data-school="vanderbilt">Vanderbilt only</button>
+  </div>
+
+  <!-- Example chips -->
+  <div>
+    <div class="examples-label" style="margin-bottom:8px">Try asking</div>
+    <div class="chips">
+      <div class="chip">What are UTK students complaining about most?</div>
+      <div class="chip">How does Vanderbilt compare to UTK for engineering?</div>
+      <div class="chip">What do students say about intro CS at Vanderbilt?</div>
+      <div class="chip">Which UTK professors are most praised?</div>
+      <div class="chip">What do students say about Vanderbilt workload?</div>
+    </div>
+  </div>
+
+  <!-- Chat window -->
+  <div class="chat-window" id="chatWindow"></div>
+
+  <!-- Input -->
+  <div class="input-row">
+    <input type="text" id="questionInput" placeholder="Ask about student life, professors, courses…" />
+    <button class="send-btn" id="sendBtn" onclick="sendQuestion()">Ask →</button>
+  </div>
+
+</div>
+
+<footer>
+  Built for the <a href="https://devpost.com" target="_blank">Google Cloud Rapid Agent Hackathon 2026</a> ·
+  <a href="https://github.com/srivi19/campus-voice-agent" target="_blank">GitHub</a>
+</footer>
+
+<script>
+  let selectedSchool = "";
+
+  // School filter buttons
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedSchool = btn.dataset.school;
+    });
+  });
+
+  // Example chips
+  document.querySelectorAll(".chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      document.getElementById("questionInput").value = chip.textContent;
+      sendQuestion();
+    });
+  });
+
+  // Enter key
+  document.getElementById("questionInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") sendQuestion();
+  });
+
+  function appendMessage(role, text) {
+    const win = document.getElementById("chatWindow");
+    const div = document.createElement("div");
+    div.className = `msg ${role}`;
+    div.innerHTML = `
+      <div class="avatar">${role === "user" ? "🙋" : "🤖"}</div>
+      <div class="bubble">${formatText(text)}</div>
+    `;
+    win.appendChild(div);
+    win.scrollTop = win.scrollHeight;
+    return div;
+  }
+
+  function showTyping() {
+    const win = document.getElementById("chatWindow");
+    const div = document.createElement("div");
+    div.className = "msg bot typing";
+    div.id = "typingIndicator";
+    div.innerHTML = `<div class="avatar">🤖</div><div class="bubble"><div class="dots"><span></span><span></span><span></span></div></div>`;
+    win.appendChild(div);
+    win.scrollTop = win.scrollHeight;
+  }
+
+  function removeTyping() {
+    const el = document.getElementById("typingIndicator");
+    if (el) el.remove();
+  }
+
+  function formatText(text) {
+    // Basic markdown-ish rendering
+    return text
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.+?)\*/g, "<em>$1</em>")
+      .replace(/\n/g, "<br>");
+  }
+
+  async function sendQuestion() {
+    const input = document.getElementById("questionInput");
+    const question = input.value.trim();
+    if (!question) return;
+
+    input.value = "";
+    document.getElementById("sendBtn").disabled = true;
+
+    appendMessage("user", question);
+    showTyping();
+
+    try {
+      const res = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question, school: selectedSchool || null }),
+      });
+      const data = await res.json();
+      removeTyping();
+      appendMessage("bot", data.answer || data.error || "No response.");
+    } catch (err) {
+      removeTyping();
+      appendMessage("bot", "Error reaching the server. Please try again.");
+    }
+
+    document.getElementById("sendBtn").disabled = false;
+    input.focus();
+  }
+</script>
+
+</body>
+</html>
