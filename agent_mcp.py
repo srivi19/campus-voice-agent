@@ -220,7 +220,10 @@ def ask(question: str) -> str:
             if response is None:
                 raise RuntimeError("Gemini API unavailable after retries")
 
-            parts = response.candidates[0].content.parts
+            candidate = response.candidates[0] if response.candidates else None
+            if not candidate or not candidate.content or not candidate.content.parts:
+                return "I couldn't generate a response — please try rephrasing your question."
+            parts = candidate.content.parts
             messages.append(types.Content(role="model", parts=parts))
 
             function_calls = [p for p in parts if p.function_call]
