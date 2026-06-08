@@ -213,17 +213,21 @@ def ask(question: str) -> str:
 
             # Retry on 503 UNAVAILABLE with backoff
             response = None
-            for attempt in range(3):
+            for attempt in range(5):
                 try:
                     response = client.models.generate_content(
                         model=GEMINI_MODEL,
                         contents=messages,
-                        config=types.GenerateContentConfig(tools=use_tools),
+                        config=types.GenerateContentConfig(
+                            tools=use_tools,
+                            # Disable thinking mode — it produces empty parts and unpredictable behavior
+                            thinking_config=types.ThinkingConfig(thinking_budget=0),
+                        ),
                     )
                     break
                 except Exception as e:
-                    if ("503" in str(e) or "UNAVAILABLE" in str(e)) and attempt < 2:
-                        time.sleep(2 ** attempt)
+                    if ("503" in str(e) or "UNAVAILABLE" in str(e)) and attempt < 4:
+                        time.sleep(3 * (attempt + 1))  # 3s, 6s, 9s, 12s
                     else:
                         raise
             if response is None:
