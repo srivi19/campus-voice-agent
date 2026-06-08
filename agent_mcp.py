@@ -18,7 +18,14 @@ from google.genai import types
 load_dotenv()
 
 GEMINI_MODEL = "gemini-2.5-flash"
-MCP_BIN = os.path.join(os.environ.get("APPDATA", ""), "npm", "mcp-server-elasticsearch.cmd")
+
+# Cross-platform MCP binary path
+# On Windows: %APPDATA%\npm\mcp-server-elasticsearch.cmd
+# On Linux (Cloud Run): /usr/local/bin/mcp-server-elasticsearch
+if sys.platform == "win32":
+    MCP_BIN = os.path.join(os.environ.get("APPDATA", ""), "npm", "mcp-server-elasticsearch.cmd")
+else:
+    MCP_BIN = "mcp-server-elasticsearch"
 
 SYSTEM_PROMPT = """You are CampusVoice, an AI analyst that helps administrators, counselors,
 and students understand what students really think about universities.
@@ -27,6 +34,11 @@ You have access to an Elasticsearch index called 'campus_reviews' containing rea
 reviews from Rate My Professors for:
 - University of Tennessee Knoxville (school_tag: "utk")
 - Vanderbilt University (school_tag: "vanderbilt")
+- Georgia Institute of Technology (school_tag: "gatech")
+- University of Florida (school_tag: "uf")
+- University of Michigan (school_tag: "umich")
+- UCLA (school_tag: "ucla")
+- Duke University (school_tag: "duke")
 
 Each document contains: school, school_tag, professor_name, department, course,
 comment, helpful_rating (1-5), clarity_rating (1-5), difficulty_rating (1-5),
