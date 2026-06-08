@@ -7,7 +7,7 @@
 
 ## Overview
 
-CampusVoice is an agentic AI app that answers natural-language questions about university professors and campus life using real student review data. It combines a Gemini LLM with an Elasticsearch backend via the Model Context Protocol (MCP).
+CampusVoice is an agentic AI app that answers natural-language questions about university professors and campus life using real student review data from two sources. It combines a Gemini LLM with an Elasticsearch backend via the Model Context Protocol (MCP).
 
 ```
 User → Flask API → Gemini Agent → Elastic MCP Server → Elasticsearch
@@ -17,17 +17,33 @@ User → Flask API → Gemini Agent → Elastic MCP Server → Elasticsearch
 
 ---
 
+## Data Sources
+
+CampusVoice combines two complementary data sources into a single Elasticsearch index:
+
+| Source | What it covers | Volume |
+|--------|---------------|--------|
+| **Rate My Professors** (GraphQL API) | Professor quality, grading, course difficulty, teaching style | ~6,000 reviews |
+| **Reddit** (public JSON API — no credentials) | Campus life, housing, dining, workload, social life, student discussions | ~1,000+ posts & comments |
+
+Together these give the agent both structured professor feedback and open-ended student discussions, making it possible to answer questions like *"What's campus life like at Michigan?"* (Reddit) alongside *"Which professors at UCLA are rated highest?"* (RMP).
+
+### Reddit Collection — No API Key Required
+Reddit's public `.json` endpoint (`reddit.com/r/<subreddit>.json`) returns post and comment data without any authentication. The collector hits hot posts, top posts of the year, and top-level comments from 7 university subreddits: r/UTK, r/vanderbilt, r/gatech, r/ufl, r/uofm, r/ucla, r/Duke.
+
+---
+
 ## Component Breakdown
 
 ### 1. Web UI (`templates/index.html`)
-A single-page app served by Flask. Users select a university tab, type a question, and receive a streamed answer. Built with vanilla HTML/CSS/JS — no frontend framework needed.
+A single-page app served by Flask. Users select a university tab, type a question, and receive an answer. Built with vanilla HTML/CSS/JS.
 
 - University tabs: UTK, Vanderbilt, Georgia Tech, UF, Michigan, UCLA, Duke
-- Suggested questions per university
-- University descriptions and emoji branding
+- Suggested questions per university (covering both professor and campus life topics)
+- Data source badges: Gemini 2.5, Elastic MCP Search, Rate My Professors, Reddit, Google Cloud Run
 
 ### 2. Flask API Server (`server.py`)
-Thin HTTP layer with two endpoints:
+Thin HTTP layer with three endpoints:
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
@@ -46,11 +62,18 @@ The core reasoning layer. Runs a multi-turn function-calling loop:
 4. Gemini synthesizes the results into a final answer
 5. Repeats up to 8 times until Gemini produces a text response
 
+The system prompt instructs Gemini to:
+- Try `school_tag` filter first, then fall back to `school` name match, then broad search — so it never gives up after one empty result
+- Search Reddit content (`source: "reddit"`) for campus life questions
+- Search RMP content (`source: "rate_my_professors"`) for professor/course questions
+- Quote actual review and post text verbatim for credibility
+- Compare schools by running two separate searches
+
 Key design decisions:
-- **No aggregation queries** — the MCP server returns 0 results for agg-only queries; Gemini is instructed to use sorted searches instead
-- **Thinking disabled** — `thinking_budget=0` prevents Gemini 2.5 Flash from returning empty thought-only responses
-- **85-second time budget** — hard wall-clock limit to prevent Cloud Run 300s timeout
-- **503 retry with backoff** — 5 attempts at 3s, 6s, 9s, 12s intervals for Gemini API overload
+- **3-tier search fallback** — school_tag → school name match → no filter, prevents empty responses
+- **No aggregation queries** — the MCP server returns 0 results for agg-only queries
+- **85-second time budget** — hard wall-clock limit before Cloud Run's 300s timeout
+- **503 retry with backoff** — 5 attempts at 3s/6s/9s/12s intervals for Gemini API overload
 
 ### 4. MCP Client (inside `agent_mcp.py`)
 A lightweight JSON-RPC over stdio client that:
@@ -61,39 +84,43 @@ A lightweight JSON-RPC over stdio client that:
 4. Calls tools on Gemini's behalf (`tools/call`)
 5. Filters stdout for valid JSON-RPC lines (ignores Node.js telemetry noise)
 
-The MCP server handles all Elasticsearch query construction — Gemini describes what it wants in natural language and the MCP server translates it to ES DSL.
-
 ### 5. Elastic MCP Server (subprocess)
 `@elastic/mcp-server-elasticsearch` — an official Elastic npm package that:
-
 - Connects to Elasticsearch Cloud using `ES_URL` + `ES_API_KEY`
 - Exposes search, get, and index tools over MCP stdio
 - Runs inside the same Docker container as the Python app
 
 ### 6. Elasticsearch (`campus_reviews` index)
-Hosted on [Elastic Cloud Serverless](https://www.elastic.co/cloud). Stores ~25,000 professor reviews with these fields:
+Hosted on [Elastic Cloud Serverless](https://www.elastic.co/cloud). Stores 6,800+ reviews and discussions with these fields:
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `source` | keyword | "rate_my_professors" or "reddit" |
 | `school` | keyword | Full university name |
-| `school_tag` | keyword | Short tag (utk, vanderbilt, etc.) |
-| `professor_name` | text | Professor full name |
-| `department` | keyword | Academic department |
-| `course` | keyword | Course code |
-| `comment` | text | Full student review text |
-| `helpful_rating` | float | 1–5 helpfulness score |
-| `clarity_rating` | float | 1–5 clarity score |
-| `difficulty_rating` | float | 1–5 difficulty score |
-| `avg_rating` | float | Professor's overall average rating |
-| `category` | keyword | Auto-tagged: academics, housing, dining, etc. |
-| `date` | date | Review date |
+| `school_tag` | keyword | Short tag (utk, vanderbilt, gatech, uf, umich, ucla, duke) |
+| `professor_name` | text | Professor full name (RMP only) |
+| `department` | keyword | Academic department (RMP only) |
+| `course` | keyword | Course code (RMP only) |
+| `comment` | text | Full review or post text |
+| `helpful_rating` | float | 1–5 helpfulness score (RMP only) |
+| `clarity_rating` | float | 1–5 clarity score (RMP only) |
+| `difficulty_rating` | float | 1–5 difficulty score (RMP only) |
+| `avg_rating` | float | Professor's overall average rating (RMP only) |
+| `category` | keyword | Auto-tagged: academics, housing, dining, social_life, mental_health, financial_aid, career, safety |
+| `date` | date | Review or post date |
+| `reddit_score` | integer | Reddit upvote score (Reddit only) |
 
 ### 7. Data Pipeline
-One-time setup scripts:
+Scripts run once to populate Elasticsearch:
 
-- **`collect_rmp.py`** — GraphQL scraper for Rate My Professors. Fetches up to 50 professors × 15 reviews per university across 7 schools.
-- **`setup_index.py`** — Creates the `campus_reviews` index with field mappings.
-- **`ingest.py`** — Bulk-indexes the collected reviews into Elasticsearch.
+| Script | Purpose |
+|--------|---------|
+| `collect_rmp.py` | GraphQL scraper for Rate My Professors |
+| `collect_rmp_missing.py` | Targeted collector with retry logic for any schools with missing data |
+| `collect_reddit_simple.py` | Reddit public JSON API collector — no credentials needed |
+| `process_kaggle.py` | Optional: converts Kaggle RMP CSV exports to the same schema |
+| `setup_index.py` | Creates the `campus_reviews` index with field mappings |
+| `ingest.py` | Bulk-indexes all sources (`reviews.json` + `reddit_reviews.json`) |
 
 ---
 
@@ -130,15 +157,15 @@ ELASTICSEARCH_API_KEY  — Elastic Cloud API key
 ## Data Flow (Single Request)
 
 ```
-1. User types "Which professors are most praised at Vanderbilt?"
-   in the web UI (Michigan tab filtered to vanderbilt school_tag)
+1. User types "What do students say about campus housing at Michigan?"
+   on the Michigan tab
 
 2. Browser POSTs to /api/ask:
-   { "question": "Which professors are most praised?",
-     "school": "Vanderbilt University" }
+   { "question": "What do students say about campus housing?",
+     "school": "University of Michigan" }
 
 3. server.py prepends filter:
-   "[Filter to Vanderbilt University only] Which professors are most praised?"
+   "[Filter to University of Michigan only] What do students say about campus housing?"
 
 4. agent_mcp.py starts MCPClient:
    - Spawns mcp-server-elasticsearch subprocess
@@ -146,15 +173,15 @@ ELASTICSEARCH_API_KEY  — Elastic Cloud API key
    - Fetches available tools
 
 5. Gemini 2.5 Flash receives question + tool definitions
-   → Decides to call: elasticsearch_search
-   → Query: { school_tag: "vanderbilt", sort: avg_rating desc, size: 50 }
+   → Decides to search for housing-related content
+   → Query: { school_tag: "umich", match: { comment: "housing dorm" }, size: 10 }
 
 6. MCPClient sends tools/call to MCP subprocess
    → MCP server queries Elasticsearch
-   → Returns top 50 reviews sorted by rating
+   → Returns mix of RMP comments + Reddit posts about housing
 
-7. Gemini receives search results
-   → Synthesizes answer: names top professors, quotes reviews, cites ratings
+7. Gemini receives results from both sources
+   → Synthesizes answer combining professor reviews and student Reddit discussions
 
 8. Answer returned as JSON → displayed in chat UI
 ```
@@ -162,6 +189,12 @@ ELASTICSEARCH_API_KEY  — Elastic Cloud API key
 ---
 
 ## Key Design Choices
+
+**Why two data sources?**
+Rate My Professors covers professor quality well but misses campus life entirely — housing, dining, social scene, mental health. Reddit subreddits fill that gap with authentic, unfiltered student discussions. Together they give a complete picture of the student experience.
+
+**Why Reddit's public JSON API instead of PRAW?**
+Reddit's `.json` endpoint (`reddit.com/r/<sub>.json`) requires zero credentials and works with a plain `requests.get()`. PRAW requires app registration and OAuth. The public API is sufficient for read-only collection and far simpler to operate.
 
 **Why MCP instead of direct Elasticsearch SDK?**
 The Elastic MCP server is an official Elastic tool and satisfies the hackathon's Elastic partner track requirement. It also lets Gemini express queries in natural language rather than requiring hand-crafted ES DSL.
@@ -171,6 +204,3 @@ The official MCP Python SDK uses async I/O which conflicts with Flask's sync req
 
 **Why Flask instead of FastAPI/Streamlit?**
 Flask gives full control over the HTML/CSS/JS frontend, which was needed to implement the custom university tab UI and chat bubble design.
-
-**Why disable Gemini thinking?**
-Gemini 2.5 Flash's thinking mode (`thinking_budget > 0`) sometimes returns responses where all parts are internal thought tokens with no text or function calls, causing the agent loop to stall. Setting `thinking_budget=0` produces reliable, predictable outputs.

@@ -115,8 +115,9 @@
 <div class="top-bar">
   <div class="top-badge"><span>⚡</span> Gemini 2.5</div>
   <div class="top-badge"><span>🔍</span> Elastic MCP Search</div>
-  <div class="top-badge"><span>📊</span> Real student reviews</div>
-  <div class="top-badge"><span>🏫</span> 7 Sample Universities</div>
+  <div class="top-badge"><span>🎓</span> Rate My Professors</div>
+  <div class="top-badge"><span>💬</span> Reddit Discussions</div>
+  <div class="top-badge"><span>🏫</span> 7 Universities</div>
   <div class="top-badge"><span>☁️</span> Google Cloud Run</div>
 </div>
 
@@ -124,7 +125,7 @@
 <div class="hero">
   <div class="hero-icon">🎓</div>
   <h1>Campus<span>Voice</span></h1>
-  <p>Stop reading hundreds of reviews manually. Ask a plain-English question, get a synthesized answer — from thousands of real student reviews across 7 US universities.</p>
+  <p>Stop reading hundreds of reviews manually. Ask a plain-English question, get a synthesized answer — from 6,800+ real student reviews and Reddit discussions across 7 US universities.</p>
 </div>
 
 <!-- Who it's for -->
@@ -212,17 +213,17 @@
 <div class="how-section">
   <div class="section-label">⚙️ How it works</div>
   <div class="steps">
-    <div class="step"><div class="step-box"><div class="step-icon">🕷️</div><p>Reviews collected from Rate My Professors</p></div><div class="arrow">→</div></div>
-    <div class="step"><div class="step-box"><div class="step-icon">🧠</div><p>Gemini embeds & indexes with semantic search</p></div><div class="arrow">→</div></div>
-    <div class="step"><div class="step-box"><div class="step-icon">🔍</div><p>Elastic MCP server searches semantically</p></div><div class="arrow">→</div></div>
-    <div class="step"><div class="step-box"><div class="step-icon">💡</div><p>Gemini synthesizes patterns & evidence</p></div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">🎓</div><p>Reviews from Rate My Professors + Reddit</p></div><div class="arrow">→</div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">🧠</div><p>Indexed in Elasticsearch via Elastic Cloud</p></div><div class="arrow">→</div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">🔍</div><p>Elastic MCP server searches on demand</p></div><div class="arrow">→</div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">💡</div><p>Gemini synthesizes patterns & quotes</p></div></div>
   </div>
 </div>
 
 <footer>
   <div>Built by <strong style="color:#4a80aa">Vi (Srividya Narayanan)</strong> · <a href="https://github.com/srivi19/campus-voice-agent" target="_blank">GitHub</a></div>
   <div>🏆 <a href="https://devpost.com" target="_blank">Google Cloud Rapid Agent Hackathon 2026</a> · Partner Track: <strong style="color:#4a80aa">Elastic 🔍</strong></div>
-  <div>☁️ Hosted on <strong style="color:#4a80aa">Google Cloud Run</strong> · Powered by Google Cloud Agent Platform · Gemini 2.5 · Elasticsearch Serverless · Elastic MCP Server</div>
+  <div>☁️ Hosted on <strong style="color:#4a80aa">Google Cloud Run</strong> · Gemini 2.5 · Elasticsearch Serverless · Elastic MCP Server · Rate My Professors · Reddit</div>
 </footer>
 
 <script>
@@ -233,36 +234,36 @@
       "😤 What are UTK students complaining about most?",
       "📊 Compare grading at Vanderbilt vs UTK",
       "🌟 Which professors get the best reviews at UCLA?",
-      "📚 What do students say about workload at Duke?",
+      "🏠 What do students say about housing at Michigan?",
       "💻 What do CS students say at Georgia Tech?",
-      "😓 What are the biggest complaints at Michigan?",
+      "🍕 What do students say about dining at Duke?",
     ],
     "utk": [
       "😤 What are students complaining about most?",
       "📝 What do students say about grading?",
-      "💻 What do students say about CS professors?",
+      "🏠 What do students say about campus housing?",
       "🌟 Which professors have the highest ratings?",
     ],
     "vanderbilt": [
       "📚 What do students say about the workload?",
       "🌟 Which professors have the highest ratings?",
       "😤 What are students complaining about most?",
-      "📝 What do students say about grading?",
+      "🏠 What do students say about dorms and housing?",
     ],
     "gatech": [
       "💻 What do students say about CS professors?",
       "😤 What are students complaining about most?",
       "📝 What do students say about course difficulty?",
-      "🌟 Which professors have the best reviews?",
+      "🏠 What do students say about campus life?",
     ],
     "uf": [
       "😤 What are students complaining about most?",
       "🌟 Which professors have the highest ratings?",
-      "📝 What do students say about grading?",
-      "📚 What do students say about workload?",
+      "🏠 What do students say about housing and dorms?",
+      "🍕 What do students say about dining on campus?",
     ],
     "umich": [
-      "💛 What do students say about professors?",
+      "🏠 What do students say about campus housing?",
       "😤 What are students complaining about most?",
       "📝 What do students say about course difficulty?",
       "🌟 Which professors have the highest ratings?",
@@ -270,14 +271,14 @@
     "ucla": [
       "🌟 Which professors have the best reviews?",
       "😤 What are students complaining about most?",
-      "📝 What do students say about grading?",
+      "🏠 What do students say about housing and dorms?",
       "📚 What do students say about workload?",
     ],
     "duke": [
       "😤 What are students complaining about most?",
       "🌟 Which professors have the highest ratings?",
-      "📝 What do students say about grading?",
-      "📚 What do students say about workload?",
+      "🏠 What do students say about campus life?",
+      "🍕 What do students say about dining at Duke?",
     ],
   };
 
