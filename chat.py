@@ -3,7 +3,7 @@ chat.py
 Simple terminal chat interface for CampusVoice.
 """
 
-from agent import ask
+from agent_mcp import ask
 
 BANNER = """
 ╔══════════════════════════════════════════════════════════╗
@@ -57,7 +57,11 @@ def main():
 
         print("\n🔍 Searching reviews...\n")
         try:
-            answer = ask(user_input, school_filter=school_filter)
+            # school filter is embedded in the question for MCP agent
+            q = user_input
+            if school_filter:
+                q = f"[Filter to {school_filter} only] {user_input}"
+            answer = ask(q)
             print(f"📊 {answer}\n")
             print("-" * 60)
         except Exception as e:
