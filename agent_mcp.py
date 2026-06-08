@@ -17,7 +17,7 @@ from google.genai import types
 
 load_dotenv()
 
-GEMINI_MODEL = "gemini-2.5-flash"
+GEMINI_MODEL = "gemini-2.0-flash"
 
 # Cross-platform MCP binary path
 # On Windows: %APPDATA%\npm\mcp-server-elasticsearch.cmd
@@ -202,11 +202,23 @@ def ask(question: str) -> str:
         ]
 
         for _ in range(6):
-            response = client.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=messages,
-                config=types.GenerateContentConfig(tools=gemini_tools),
-            )
+            # Retry on 503 UNAVAILABLE with backoff
+            response = None
+            for attempt in range(3):
+                try:
+                    response = client.models.generate_content(
+                        model=GEMINI_MODEL,
+                        contents=messages,
+                        config=types.GenerateContentConfig(tools=gemini_tools),
+                    )
+                    break
+                except Exception as e:
+                    if ("503" in str(e) or "UNAVAILABLE" in str(e)) and attempt < 2:
+                        time.sleep(2 ** attempt)
+                    else:
+                        raise
+            if response is None:
+                raise RuntimeError("Gemini API unavailable after retries")
 
             parts = response.candidates[0].content.parts
             messages.append(types.Content(role="model", parts=parts))
