@@ -170,22 +170,22 @@
 <div class="chat-panel">
   <div class="chat-box">
 
+    <div class="try-label">💡 Try asking</div>
+    <div class="chips" id="chipsContainer">
+      <div class="chip">😤 What are UTK students complaining about most?</div>
+      <div class="chip">📊 Compare grading at Vanderbilt vs UTK</div>
+      <div class="chip">🌟 Which professors get the best reviews at UCLA?</div>
+      <div class="chip">📚 What do students say about workload at Duke?</div>
+      <div class="chip">💻 What do CS students say at Georgia Tech?</div>
+      <div class="chip">😓 What are the biggest complaints at Michigan?</div>
+    </div>
+
     <div class="uni-info" id="uniInfo">
       <div class="uni-big-emoji" id="uniEmoji">🌎</div>
       <div>
         <h2 id="uniName">All Universities</h2>
         <p id="uniDesc">Search across all 7 universities at once</p>
       </div>
-    </div>
-
-    <div class="try-label">💡 Try asking</div>
-    <div class="chips" id="chipsContainer">
-      <div class="chip">😤 What are UTK students complaining about most?</div>
-      <div class="chip">⚖️ How does Vanderbilt compare to UTK for engineering?</div>
-      <div class="chip">💻 What do students say about intro CS at Georgia Tech?</div>
-      <div class="chip">🌟 Which UCLA professors are most praised?</div>
-      <div class="chip">📚 What is the workload like at Duke?</div>
-      <div class="chip">🏠 What do Michigan students say about campus life?</div>
     </div>
 
     <div class="chat-window" id="chatWindow">
@@ -226,53 +226,53 @@
   const CHIPS_BY_SCHOOL = {
     "": [
       "😤 What are UTK students complaining about most?",
-      "⚖️ How does Vanderbilt compare to UTK for engineering?",
-      "💻 What do students say about intro CS at Georgia Tech?",
-      "🌟 Which UCLA professors are most praised?",
-      "📚 What is the workload like at Duke?",
-      "🏠 What do Michigan students say about campus life?",
+      "📊 Compare grading at Vanderbilt vs UTK",
+      "🌟 Which professors get the best reviews at UCLA?",
+      "📚 What do students say about workload at Duke?",
+      "💻 What do CS students say at Georgia Tech?",
+      "😓 What are the biggest complaints at Michigan?",
     ],
     "utk": [
       "😤 What are students complaining about most?",
-      "🌟 Which professors are most praised?",
-      "💻 What do students say about the CS department?",
-      "📝 How is the grading at UTK?",
+      "📝 What do students say about grading?",
+      "💻 What do students say about CS professors?",
+      "🌟 Which professors have the highest ratings?",
     ],
     "vanderbilt": [
-      "📚 What is the workload like at Vanderbilt?",
-      "🌟 Which professors are most loved?",
-      "⚗️ What do engineering students say?",
-      "😤 What are the biggest complaints?",
+      "📚 What do students say about the workload?",
+      "🌟 Which professors have the highest ratings?",
+      "😤 What are students complaining about most?",
+      "📝 What do students say about grading?",
     ],
     "gatech": [
-      "💻 What do CS students say about Georgia Tech?",
-      "😤 What are students complaining about?",
-      "📝 How difficult are the courses?",
-      "🌟 Which professors are highly rated?",
+      "💻 What do students say about CS professors?",
+      "😤 What are students complaining about most?",
+      "📝 What do students say about course difficulty?",
+      "🌟 Which professors have the best reviews?",
     ],
     "uf": [
-      "🐊 What is student life like at UF?",
-      "😤 What are students complaining about?",
-      "🌟 Which professors are most praised?",
+      "😤 What are students complaining about most?",
+      "🌟 Which professors have the highest ratings?",
+      "📝 What do students say about grading?",
       "📚 What do students say about workload?",
     ],
     "umich": [
-      "💛 What do Michigan students say about professors?",
-      "😤 What are the biggest complaints?",
-      "💻 How is the engineering program?",
-      "🌟 Which courses are most popular?",
+      "💛 What do students say about professors?",
+      "😤 What are students complaining about most?",
+      "📝 What do students say about course difficulty?",
+      "🌟 Which professors have the highest ratings?",
     ],
     "ucla": [
-      "🐻 What do UCLA students say about campus life?",
-      "🌟 Which professors are most praised?",
-      "😤 What are students complaining about?",
-      "📚 What is the workload like?",
+      "🌟 Which professors have the best reviews?",
+      "😤 What are students complaining about most?",
+      "📝 What do students say about grading?",
+      "📚 What do students say about workload?",
     ],
     "duke": [
-      "🔵 What do Duke students say about professors?",
       "😤 What are students complaining about most?",
-      "📚 How is the academic rigor at Duke?",
-      "🌟 Which departments get the best reviews?",
+      "🌟 Which professors have the highest ratings?",
+      "📝 What do students say about grading?",
+      "📚 What do students say about workload?",
     ],
   };
 
