@@ -79,9 +79,11 @@
     .dots span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-7px)} }
 
-    .input-row { display: flex; gap: 10px; background: #0a1020; border: 1px solid #1a3050; border-radius: 10px; padding: 9px 13px; align-items: center; }
+    .input-row { display: flex; gap: 10px; background: #0a1020; border: 1.5px solid #2a6090; border-radius: 10px; padding: 9px 13px; align-items: center; box-shadow: 0 0 0 3px rgba(42,96,144,0.15); }
+    .input-row:focus-within { border-color: #4a9ede; box-shadow: 0 0 0 3px rgba(74,158,222,0.2); }
+    .input-row .robot-icon { font-size: 18px; flex-shrink: 0; }
     .input-row input { flex: 1; background: transparent; border: none; outline: none; color: #e0e8f0; font-size: 14px; }
-    .input-row input::placeholder { color: #2a4a6a; }
+    .input-row input::placeholder { color: #4a7a9a; font-style: italic; }
     .send-btn { background: #0f4a8a; border: none; border-radius: 8px; padding: 8px 18px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
     .send-btn:hover { background: #1a6ab0; }
     .send-btn:disabled { background: #0d2040; color: #2a4060; cursor: not-allowed; }
@@ -98,22 +100,29 @@
     footer { text-align: center; font-size: 12px; color: #3a5a7a; padding: 22px; border-top: 1px solid #0f2030; line-height: 1.9; }
     footer a { color: #4a80aa; text-decoration: none; }
     footer a:hover { color: #6aaad0; }
+
+    /* ── Top header bar ── */
+    .top-bar { background: #060d18; border-bottom: 1px solid #1a3050; padding: 8px 24px; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .top-badge { display: flex; align-items: center; gap: 6px; background: #0d1f35; border: 1px solid #1e4060; color: #5a9ece; font-size: 11.5px; font-weight: 500; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+    .top-badge span { font-size: 13px; }
   </style>
 </head>
 <body>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <div class="top-badge"><span>⚡</span> Gemini 2.5</div>
+  <div class="top-badge"><span>🔍</span> Elastic MCP Search</div>
+  <div class="top-badge"><span>📊</span> Real student reviews</div>
+  <div class="top-badge"><span>🏫</span> 7 Sample Universities</div>
+  <div class="top-badge"><span>☁️</span> Google Cloud Run</div>
+</div>
 
 <!-- Hero -->
 <div class="hero">
   <div class="hero-icon">🎓</div>
   <h1>Campus<span>Voice</span></h1>
   <p>Stop reading hundreds of reviews manually. Ask a plain-English question, get a synthesized answer — from thousands of real student reviews across 7 US universities.</p>
-  <div class="hero-badges">
-    <div class="hero-badge">⚡ Gemini 2.5</div>
-    <div class="hero-badge">🔍 Elastic MCP Search</div>
-    <div class="hero-badge">📊 Real student reviews</div>
-    <div class="hero-badge">🏫 7 Universities</div>
-    <div class="hero-badge">☁️ Google Cloud Run</div>
-  </div>
 </div>
 
 <!-- Who it's for -->
@@ -187,7 +196,8 @@
     </div>
 
     <div class="input-row">
-      <input type="text" id="questionInput" placeholder="Ask about professors, courses, campus life…" />
+      <span class="robot-icon">🤖</span>
+      <input type="text" id="questionInput" placeholder="Ask me anything about professors, courses, campus life…" />
       <button class="send-btn" id="sendBtn" onclick="sendQuestion()">Ask →</button>
     </div>
   </div>
