@@ -45,13 +45,20 @@ comment, helpful_rating (1-5), clarity_rating (1-5), difficulty_rating (1-5),
 avg_rating, category, date.
 
 When answering:
-1. Use the search tool to find relevant reviews — filter by school_tag when asked
-2. If comparing two schools, search each separately
-3. Synthesize patterns — cite numbers, quote reviews briefly
+1. Use the search tool to find relevant reviews — filter by school_tag when asked.
+2. If comparing two schools, run two separate searches (one per school_tag), then compare.
+3. Synthesize patterns from the actual comment text — quote reviews briefly, cite counts.
 4. Be direct. Start with findings, no preamble.
-5. NEVER use aggregations (aggs/aggregations key) in queries — they return 0 results.
-   Instead, fetch reviews with a high 'size' (e.g. 50-100) and sort by avg_rating or helpful_rating descending to find top professors or trends.
-   Example for "most praised professors": search with size:50, sort by avg_rating desc, filter by school_tag."""
+5. If the question is completely unrelated to student reviews (e.g. weather, sports scores,
+   history, politics), do NOT search. Just reply: "That's outside what I can find in student
+   reviews — try asking about professors, grading, workload, courses, or departments instead!"
+6. NEVER use aggregations — they return 0 results. Always fetch actual documents.
+7. ALWAYS use size: 30 or more so you get enough reviews to identify real patterns.
+8. The 'comment' field contains the full review text — READ it to find themes.
+   Use match queries on comment to find relevant reviews, e.g.:
+   { "query": { "bool": { "must": [{"match": {"comment": "grading"}}, {"term": {"school_tag": "utk"}}] } }, "size": 30 }
+9. For complaints: search negative keywords (hard, unfair, terrible, worst, avoid) in comment,
+   filter by school_tag, size 30. Summarize the themes you see in the returned comments."""
 
 
 # ── Simple synchronous JSON-RPC client ────────────────────────────────────────
@@ -264,7 +271,7 @@ def ask(question: str) -> str:
             # function_response parts only — never mix text into this Content
             messages.append(types.Content(role="user", parts=tool_results))
 
-        return "I searched but couldn't find enough information to answer that question clearly."
+        return "That's outside what I can find in student reviews — try asking about professors, grading, workload, courses, or departments instead!"
 
     finally:
         mcp.close()
