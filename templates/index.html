@@ -34,59 +34,61 @@
     .uni-tab {
       display: flex; align-items: center; gap: 8px;
       padding: 10px 18px; border-radius: 10px 10px 0 0;
-      border: 1px solid #1a3050; border-bottom: none;
-      background: #0a1020; color: #4a6a8a;
-      font-size: 13px; cursor: pointer; white-space: nowrap;
+      border: 1px solid #2a5080; border-bottom: none;
+      background: linear-gradient(180deg, #1a3a5c 0%, #0f2540 100%);
+      color: #90c4e8; font-size: 13px; cursor: pointer; white-space: nowrap;
       transition: all 0.2s; flex-shrink: 0;
     }
-    .uni-tab:hover { background: #0d1830; color: #8ab8d8; }
-    .uni-tab.active { background: #0d1520; color: #fff; border-color: #2a5080; font-weight: 600; }
+    .uni-tab:hover { background: linear-gradient(180deg, #1e4a74 0%, #142e52 100%); color: #c0dff5; border-color: #3a70a8; }
+    .uni-tab.active { background: #dbeafe; color: #1e3a6e; border-color: #3b82f6; border-bottom: 2px solid #dbeafe; font-weight: 700; }
     .uni-tab .uni-emoji { font-size: 16px; }
 
     /* ── Chat Panel ── */
     .chat-panel { max-width: 960px; margin: 0 auto; padding: 0 20px 32px; }
-    .chat-box { background: #0d1520; border: 1px solid #2a5080; border-radius: 0 12px 12px 12px; padding: 20px; }
+    .chat-box { background: #dbeafe; border: 2px solid #3b82f6; border-radius: 0 12px 12px 12px; padding: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.35); }
 
-    .uni-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #1a3050; }
+    .uni-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #93c5fd; }
     .uni-info .uni-big-emoji { font-size: 28px; }
-    .uni-info h2 { font-size: 16px; font-weight: 700; color: #ddeeff; }
-    .uni-info p { font-size: 12px; color: #4a7a9a; margin-top: 2px; }
+    .uni-info h2 { font-size: 16px; font-weight: 700; color: #1e3a6e; }
+    .uni-info p { font-size: 12px; color: #3b6aa0; margin-top: 2px; }
 
-    .try-label { font-size: 11px; color: #3a6080; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
-    .chip { background: #0a1520; border: 1px solid #1a3050; color: #5a8aaa; font-size: 12px; padding: 6px 13px; border-radius: 14px; cursor: pointer; transition: all 0.2s; }
-    .chip:hover { background: #102040; border-color: #2a6090; color: #aad0ee; }
+    /* ── Try asking strip ── */
+    .try-strip { max-width: 960px; margin: 0 auto; padding: 14px 20px 0; }
+    .try-label { font-size: 11px; color: #1e40af; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 9px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 0; }
+    .chip { background: #eff6ff; border: 1px solid #3b82f6; color: #1e40af; font-size: 12px; padding: 7px 14px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+    .chip:hover { background: #bfdbfe; border-color: #1d4ed8; color: #1e3a6e; }
 
     .chat-window { min-height: 220px; max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: 4px 0; margin-bottom: 14px; }
-    .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; color: #2a4060; text-align: center; gap: 8px; }
+    .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; color: #6090c0; text-align: center; gap: 8px; }
     .empty-state .big-icon { font-size: 36px; }
     .empty-state p { font-size: 13px; }
 
     .msg { display: flex; gap: 10px; align-items: flex-start; }
     .msg.user { flex-direction: row-reverse; }
     .avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
-    .msg.user .avatar { background: #0f3060; }
-    .msg.bot .avatar  { background: #0f2a1a; }
+    .msg.user .avatar { background: #1d4ed8; }
+    .msg.bot .avatar  { background: #1e3a6e; }
     .bubble { max-width: 80%; padding: 11px 14px; border-radius: 14px; font-size: 14px; line-height: 1.65; }
-    .msg.user .bubble { background: #0f3060; border-radius: 14px 4px 14px 14px; color: #cce4ff; }
-    .msg.bot  .bubble { background: #0a1020; border: 1px solid #1a3050; border-radius: 4px 14px 14px 14px; color: #c8dcea; }
-    .bubble strong { color: #6ab8e8; }
+    .msg.user .bubble { background: #1d4ed8; border-radius: 14px 4px 14px 14px; color: #fff; }
+    .msg.bot  .bubble { background: #fff; border: 1px solid #93c5fd; border-radius: 4px 14px 14px 14px; color: #1e3a6e; }
+    .bubble strong { color: #1d4ed8; }
 
     .typing .bubble { padding: 14px 16px; }
     .dots { display: flex; gap: 5px; }
-    .dots span { width: 7px; height: 7px; border-radius: 50%; background: #2a6090; animation: bounce 1.2s infinite ease-in-out; }
+    .dots span { width: 7px; height: 7px; border-radius: 50%; background: #3b82f6; animation: bounce 1.2s infinite ease-in-out; }
     .dots span:nth-child(2) { animation-delay: 0.2s; }
     .dots span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-7px)} }
 
-    .input-row { display: flex; gap: 10px; background: #0a1020; border: 1.5px solid #2a6090; border-radius: 10px; padding: 9px 13px; align-items: center; box-shadow: 0 0 0 3px rgba(42,96,144,0.15); }
-    .input-row:focus-within { border-color: #4a9ede; box-shadow: 0 0 0 3px rgba(74,158,222,0.2); }
+    .input-row { display: flex; gap: 10px; background: #eff6ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 10px 14px; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .input-row:focus-within { border-color: #1d4ed8; box-shadow: 0 2px 14px rgba(29,78,216,0.25); }
     .input-row .robot-icon { font-size: 18px; flex-shrink: 0; }
-    .input-row input { flex: 1; background: transparent; border: none; outline: none; color: #e0e8f0; font-size: 14px; }
-    .input-row input::placeholder { color: #4a7a9a; font-style: italic; }
-    .send-btn { background: #0f4a8a; border: none; border-radius: 8px; padding: 8px 18px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-    .send-btn:hover { background: #1a6ab0; }
-    .send-btn:disabled { background: #0d2040; color: #2a4060; cursor: not-allowed; }
+    .input-row input { flex: 1; background: transparent; border: none; outline: none; color: #1e3a6e; font-size: 14px; }
+    .input-row input::placeholder { color: #6090c0; font-style: italic; }
+    .send-btn { background: #1d4ed8; border: none; border-radius: 8px; padding: 8px 18px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .send-btn:hover { background: #1e40af; }
+    .send-btn:disabled { background: #bfdbfe; color: #7aabda; cursor: not-allowed; }
 
     /* ── How it works ── */
     .how-section { border-top: 1px solid #0f2030; padding: 28px 24px; max-width: 960px; margin: 0 auto; text-align: center; }
@@ -136,6 +138,19 @@
   </div>
 </div>
 
+<!-- Try asking strip -->
+<div class="try-strip">
+  <div class="try-label">💡 Try asking</div>
+  <div class="chips" id="chipsContainer">
+    <div class="chip">😤 What are UTK students complaining about most?</div>
+    <div class="chip">📊 Compare grading at Vanderbilt vs UTK</div>
+    <div class="chip">🌟 Which professors get the best reviews at UCLA?</div>
+    <div class="chip">📚 What do students say about workload at Duke?</div>
+    <div class="chip">💻 What do CS students say at Georgia Tech?</div>
+    <div class="chip">😓 What are the biggest complaints at Michigan?</div>
+  </div>
+</div>
+
 <!-- University Tabs -->
 <div class="uni-tabs-wrapper">
   <div class="uni-tabs" id="uniTabs">
@@ -169,16 +184,6 @@
 <!-- Chat Panel -->
 <div class="chat-panel">
   <div class="chat-box">
-
-    <div class="try-label">💡 Try asking</div>
-    <div class="chips" id="chipsContainer">
-      <div class="chip">😤 What are UTK students complaining about most?</div>
-      <div class="chip">📊 Compare grading at Vanderbilt vs UTK</div>
-      <div class="chip">🌟 Which professors get the best reviews at UCLA?</div>
-      <div class="chip">📚 What do students say about workload at Duke?</div>
-      <div class="chip">💻 What do CS students say at Georgia Tech?</div>
-      <div class="chip">😓 What are the biggest complaints at Michigan?</div>
-    </div>
 
     <div class="uni-info" id="uniInfo">
       <div class="uni-big-emoji" id="uniEmoji">🌎</div>
