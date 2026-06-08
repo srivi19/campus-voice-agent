@@ -1,6 +1,6 @@
 """
 collect_rmp.py
-Fetches professor reviews from Rate My Professors for UTK and Vanderbilt.
+Fetches professor reviews from Rate My Professors for multiple universities.
 Saves results to data/reviews.json
 """
 
@@ -20,6 +20,11 @@ HEADERS = {
 SCHOOLS = {
     "University of Tennessee Knoxville": "utk",
     "Vanderbilt University": "vanderbilt",
+    "Georgia Institute of Technology": "gatech",
+    "University of Florida": "uf",
+    "University of Michigan": "umich",
+    "UCLA": "ucla",
+    "Duke University": "duke",
 }
 
 

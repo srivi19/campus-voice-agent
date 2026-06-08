@@ -107,7 +107,7 @@ def ask(question, school_filter=None, department_filter=None):
     # Build prompt and get Gemini answer
     prompt = build_prompt(question, reviews)
     response = gemini.models.generate_content(
-        model="gemini-2.0-flash",
+        model="models/gemini-3.5-flash",
         contents=prompt,
     )
 

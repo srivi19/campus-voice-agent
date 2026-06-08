@@ -6,286 +6,320 @@
   <title>CampusVoice — Student Sentiment Agent</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b0f1a; color: #e0e8f0; min-height: 100vh; }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f1117;
-      color: #e8eaf0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    /* ── Hero ── */
+    .hero { background: linear-gradient(135deg, #0d1b2e 0%, #0a1520 60%, #111827 100%); border-bottom: 1px solid #1a3050; padding: 44px 24px 36px; text-align: center; }
+    .hero-icon { font-size: 50px; margin-bottom: 12px; }
+    .hero h1 { font-size: 34px; font-weight: 800; color: #fff; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .hero h1 span { color: #4a9ede; }
+    .hero p { font-size: 15px; color: #7aa8cc; max-width: 560px; margin: 0 auto 22px; line-height: 1.65; }
+    .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .hero-badge { background: #0d1f35; border: 1px solid #1e4060; color: #5a9ece; font-size: 12px; padding: 5px 14px; border-radius: 20px; }
 
-    /* ── Header ── */
-    header {
-      background: linear-gradient(135deg, #1a1f2e 0%, #0d1b2a 100%);
-      border-bottom: 1px solid #1e3a5f;
-      padding: 18px 32px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    header .logo { font-size: 28px; }
-    header h1 { font-size: 22px; font-weight: 700; color: #fff; }
-    header p { font-size: 13px; color: #7ea8c9; margin-top: 2px; }
-    .badge {
-      margin-left: auto;
-      background: #1a3a5c;
-      border: 1px solid #2a5a8c;
-      color: #5ba3d9;
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
+    /* ── Personas ── */
+    .for-section { padding: 28px 24px; max-width: 960px; margin: 0 auto; }
+    .section-label { font-size: 13px; font-weight: 600; color: #4a7a9a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; text-align: center; }
+    .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .persona-card { background: #0d1520; border: 1px solid #1a3050; border-radius: 12px; padding: 16px; transition: border-color 0.2s; }
+    .persona-card:hover { border-color: #2a6090; }
+    .persona-icon { font-size: 24px; margin-bottom: 8px; }
+    .persona-card h3 { font-size: 13px; font-weight: 700; color: #c0d8ee; margin-bottom: 4px; }
+    .persona-card p { font-size: 12px; color: #4a6a8a; line-height: 1.5; }
 
-    /* ── Layout ── */
-    .container {
-      max-width: 860px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 24px 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    /* ── University Tabs ── */
+    .uni-tabs-wrapper { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    .uni-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+    .uni-tabs::-webkit-scrollbar { display: none; }
+    .uni-tab {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 10px 10px 0 0;
+      border: 1px solid #1a3050; border-bottom: none;
+      background: #0a1020; color: #4a6a8a;
+      font-size: 13px; cursor: pointer; white-space: nowrap;
+      transition: all 0.2s; flex-shrink: 0;
     }
+    .uni-tab:hover { background: #0d1830; color: #8ab8d8; }
+    .uni-tab.active { background: #0d1520; color: #fff; border-color: #2a5080; font-weight: 600; }
+    .uni-tab .uni-emoji { font-size: 16px; }
 
-    /* ── School Filter ── */
-    .filter-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      padding: 8px 20px;
-      border-radius: 20px;
-      border: 1px solid #2a3a50;
-      background: #151c28;
-      color: #8fa8c8;
-      font-size: 13px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover { border-color: #3a6ea8; color: #fff; }
-    .filter-btn.active {
-      background: #1a4a7a;
-      border-color: #2a7abf;
-      color: #fff;
-      font-weight: 600;
-    }
+    /* ── Chat Panel ── */
+    .chat-panel { max-width: 960px; margin: 0 auto; padding: 0 20px 32px; }
+    .chat-box { background: #0d1520; border: 1px solid #2a5080; border-radius: 0 12px 12px 12px; padding: 20px; }
 
-    /* ── Example chips ── */
-    .examples-label { font-size: 12px; color: #5a7a9a; text-transform: uppercase; letter-spacing: 0.08em; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      background: #151c28;
-      border: 1px solid #1e3050;
-      color: #7ea8c9;
-      font-size: 12px;
-      padding: 6px 14px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .chip:hover { background: #1a3050; border-color: #2a5a8c; color: #fff; }
+    .uni-info { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid #1a3050; }
+    .uni-info .uni-big-emoji { font-size: 28px; }
+    .uni-info h2 { font-size: 16px; font-weight: 700; color: #ddeeff; }
+    .uni-info p { font-size: 12px; color: #4a7a9a; margin-top: 2px; }
 
-    /* ── Chat window ── */
-    .chat-window {
-      flex: 1;
-      min-height: 300px;
-      max-height: 480px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 4px 2px;
-    }
-    .chat-window:empty::before {
-      content: "Ask a question to get started.";
-      color: #3a5070;
-      font-size: 14px;
-      align-self: center;
-      margin-top: 80px;
-    }
+    .try-label { font-size: 11px; color: #3a6080; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+    .chip { background: #0a1520; border: 1px solid #1a3050; color: #5a8aaa; font-size: 12px; padding: 6px 13px; border-radius: 14px; cursor: pointer; transition: all 0.2s; }
+    .chip:hover { background: #102040; border-color: #2a6090; color: #aad0ee; }
 
-    /* ── Messages ── */
-    .msg { display: flex; gap: 12px; align-items: flex-start; }
+    .chat-window { min-height: 220px; max-height: 380px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: 4px 0; margin-bottom: 14px; }
+    .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; color: #2a4060; text-align: center; gap: 8px; }
+    .empty-state .big-icon { font-size: 36px; }
+    .empty-state p { font-size: 13px; }
+
+    .msg { display: flex; gap: 10px; align-items: flex-start; }
     .msg.user { flex-direction: row-reverse; }
-    .avatar {
-      width: 34px; height: 34px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; flex-shrink: 0;
-    }
-    .msg.user .avatar { background: #1a4a7a; }
-    .msg.bot .avatar { background: #1a3a2a; }
-    .bubble {
-      max-width: 78%;
-      padding: 12px 16px;
-      border-radius: 16px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .msg.user .bubble {
-      background: #1a3a5c;
-      border-radius: 16px 4px 16px 16px;
-      color: #ddeeff;
-    }
-    .msg.bot .bubble {
-      background: #151c28;
-      border: 1px solid #1e3050;
-      border-radius: 4px 16px 16px 16px;
-      color: #d0dce8;
-    }
+    .avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+    .msg.user .avatar { background: #0f3060; }
+    .msg.bot .avatar  { background: #0f2a1a; }
+    .bubble { max-width: 80%; padding: 11px 14px; border-radius: 14px; font-size: 14px; line-height: 1.65; }
+    .msg.user .bubble { background: #0f3060; border-radius: 14px 4px 14px 14px; color: #cce4ff; }
+    .msg.bot  .bubble { background: #0a1020; border: 1px solid #1a3050; border-radius: 4px 14px 14px 14px; color: #c8dcea; }
+    .bubble strong { color: #6ab8e8; }
 
-    /* markdown-ish rendering */
-    .bubble strong { color: #7ec8e3; }
-    .bubble em { color: #a8c8e8; font-style: italic; }
-
-    /* ── Typing indicator ── */
-    .typing .bubble { padding: 14px 18px; }
+    .typing .bubble { padding: 14px 16px; }
     .dots { display: flex; gap: 5px; }
-    .dots span {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #3a6ea8;
-      animation: bounce 1.2s infinite ease-in-out;
-    }
+    .dots span { width: 7px; height: 7px; border-radius: 50%; background: #2a6090; animation: bounce 1.2s infinite ease-in-out; }
     .dots span:nth-child(2) { animation-delay: 0.2s; }
     .dots span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes bounce {
-      0%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-7px); }
-    }
+    @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-7px)} }
 
-    /* ── Input bar ── */
-    .input-row {
-      display: flex;
-      gap: 10px;
-      background: #151c28;
-      border: 1px solid #1e3050;
-      border-radius: 12px;
-      padding: 10px 14px;
-      align-items: center;
-    }
-    .input-row input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #e8eaf0;
-      font-size: 14px;
-    }
-    .input-row input::placeholder { color: #3a5070; }
-    .send-btn {
-      background: #1a5a9a;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 18px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .send-btn:hover { background: #2a7abf; }
-    .send-btn:disabled { background: #1a3050; color: #3a5070; cursor: not-allowed; }
+    .input-row { display: flex; gap: 10px; background: #0a1020; border: 1px solid #1a3050; border-radius: 10px; padding: 9px 13px; align-items: center; }
+    .input-row input { flex: 1; background: transparent; border: none; outline: none; color: #e0e8f0; font-size: 14px; }
+    .input-row input::placeholder { color: #2a4a6a; }
+    .send-btn { background: #0f4a8a; border: none; border-radius: 8px; padding: 8px 18px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .send-btn:hover { background: #1a6ab0; }
+    .send-btn:disabled { background: #0d2040; color: #2a4060; cursor: not-allowed; }
 
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      font-size: 11px;
-      color: #2a4060;
-      padding: 12px;
-    }
-    footer a { color: #3a6ea8; text-decoration: none; }
+    /* ── How it works ── */
+    .how-section { border-top: 1px solid #0f2030; padding: 28px 24px; max-width: 960px; margin: 0 auto; text-align: center; }
+    .steps { display: flex; justify-content: center; gap: 0; flex-wrap: wrap; margin-top: 16px; }
+    .step { display: flex; align-items: center; }
+    .step-box { background: #0d1520; border: 1px solid #1a3050; border-radius: 10px; padding: 14px 18px; text-align: center; min-width: 148px; }
+    .step-icon { font-size: 22px; margin-bottom: 6px; }
+    .step-box p { font-size: 12px; color: #5a8aaa; line-height: 1.4; }
+    .arrow { font-size: 18px; color: #1a4060; margin: 0 5px; }
+
+    footer { text-align: center; font-size: 12px; color: #3a5a7a; padding: 22px; border-top: 1px solid #0f2030; line-height: 1.9; }
+    footer a { color: #4a80aa; text-decoration: none; }
+    footer a:hover { color: #6aaad0; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">🎓</div>
-  <div>
-    <h1>CampusVoice</h1>
-    <p>Student sentiment agent — powered by Gemini + Elasticsearch</p>
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-icon">🎓</div>
+  <h1>Campus<span>Voice</span></h1>
+  <p>Stop reading hundreds of reviews manually. Ask a plain-English question, get a synthesized answer — from thousands of real student reviews across 7 US universities.</p>
+  <div class="hero-badges">
+    <div class="hero-badge">⚡ Gemini 2.5</div>
+    <div class="hero-badge">🔍 Elastic MCP Search</div>
+    <div class="hero-badge">📊 Real student reviews</div>
+    <div class="hero-badge">🏫 7 Universities</div>
+    <div class="hero-badge">☁️ Google Cloud Run</div>
   </div>
-  <div class="badge">⚡ Gemini + Elastic MCP</div>
-</header>
+</div>
 
-<div class="container">
-
-  <!-- School filter -->
-  <div class="filter-row">
-    <button class="filter-btn active" data-school="">Both schools</button>
-    <button class="filter-btn" data-school="utk">UTK only</button>
-    <button class="filter-btn" data-school="vanderbilt">Vanderbilt only</button>
+<!-- Who it's for -->
+<div class="for-section">
+  <div class="section-label">👥 Who is this for?</div>
+  <div class="persona-grid">
+    <div class="persona-card"><div class="persona-icon">🏛️</div><h3>School Administrators</h3><p>Spot systemic problems before they become a PR crisis or accreditation issue.</p></div>
+    <div class="persona-card"><div class="persona-icon">🧑‍🏫</div><h3>College Counselors</h3><p>Give prospective students honest, data-backed guidance on departments and schools.</p></div>
+    <div class="persona-card"><div class="persona-icon">🎒</div><h3>Prospective Students</h3><p>Cut through the marketing brochures — find out what campus life is really like.</p></div>
+    <div class="persona-card"><div class="persona-icon">📋</div><h3>Department Heads</h3><p>Identify teaching quality issues without waiting for end-of-semester surveys.</p></div>
   </div>
+</div>
 
-  <!-- Example chips -->
-  <div>
-    <div class="examples-label" style="margin-bottom:8px">Try asking</div>
-    <div class="chips">
-      <div class="chip">What are UTK students complaining about most?</div>
-      <div class="chip">How does Vanderbilt compare to UTK for engineering?</div>
-      <div class="chip">What do students say about intro CS at Vanderbilt?</div>
-      <div class="chip">Which UTK professors are most praised?</div>
-      <div class="chip">What do students say about Vanderbilt workload?</div>
+<!-- University Tabs -->
+<div class="uni-tabs-wrapper">
+  <div class="uni-tabs" id="uniTabs">
+    <div class="uni-tab active" data-school="" data-name="All Universities" data-emoji="🌎" data-desc="Search across all 7 universities at once">
+      <span class="uni-emoji">🌎</span> All Universities
+    </div>
+    <div class="uni-tab" data-school="utk" data-name="Univ. of Tennessee (UTK)" data-emoji="🟠" data-desc="Public flagship university in Knoxville, Tennessee">
+      <span class="uni-emoji">🟠</span> UTK
+    </div>
+    <div class="uni-tab" data-school="vanderbilt" data-name="Vanderbilt University" data-emoji="⭐" data-desc="Private research university in Nashville, Tennessee">
+      <span class="uni-emoji">⭐</span> Vanderbilt
+    </div>
+    <div class="uni-tab" data-school="gatech" data-name="Georgia Tech" data-emoji="🐝" data-desc="Top-ranked public research university in Atlanta, Georgia">
+      <span class="uni-emoji">🐝</span> Georgia Tech
+    </div>
+    <div class="uni-tab" data-school="uf" data-name="University of Florida" data-emoji="🐊" data-desc="Large public research university in Gainesville, Florida">
+      <span class="uni-emoji">🐊</span> Univ. of Florida
+    </div>
+    <div class="uni-tab" data-school="umich" data-name="University of Michigan" data-emoji="💛" data-desc="Prestigious public university in Ann Arbor, Michigan">
+      <span class="uni-emoji">💛</span> Michigan
+    </div>
+    <div class="uni-tab" data-school="ucla" data-name="UCLA" data-emoji="🐻" data-desc="Top-ranked public university in Los Angeles, California">
+      <span class="uni-emoji">🐻</span> UCLA
+    </div>
+    <div class="uni-tab" data-school="duke" data-name="Duke University" data-emoji="🔵" data-desc="Elite private research university in Durham, North Carolina">
+      <span class="uni-emoji">🔵</span> Duke
     </div>
   </div>
+</div>
 
-  <!-- Chat window -->
-  <div class="chat-window" id="chatWindow"></div>
+<!-- Chat Panel -->
+<div class="chat-panel">
+  <div class="chat-box">
 
-  <!-- Input -->
-  <div class="input-row">
-    <input type="text" id="questionInput" placeholder="Ask about student life, professors, courses…" />
-    <button class="send-btn" id="sendBtn" onclick="sendQuestion()">Ask →</button>
+    <div class="uni-info" id="uniInfo">
+      <div class="uni-big-emoji" id="uniEmoji">🌎</div>
+      <div>
+        <h2 id="uniName">All Universities</h2>
+        <p id="uniDesc">Search across all 7 universities at once</p>
+      </div>
+    </div>
+
+    <div class="try-label">💡 Try asking</div>
+    <div class="chips" id="chipsContainer">
+      <div class="chip">😤 What are UTK students complaining about most?</div>
+      <div class="chip">⚖️ How does Vanderbilt compare to UTK for engineering?</div>
+      <div class="chip">💻 What do students say about intro CS at Georgia Tech?</div>
+      <div class="chip">🌟 Which UCLA professors are most praised?</div>
+      <div class="chip">📚 What is the workload like at Duke?</div>
+      <div class="chip">🏠 What do Michigan students say about campus life?</div>
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+      <div class="empty-state" id="emptyState">
+        <div class="big-icon">💬</div>
+        <p>Select a university tab and ask anything about<br>student life, professors, or courses.</p>
+      </div>
+    </div>
+
+    <div class="input-row">
+      <input type="text" id="questionInput" placeholder="Ask about professors, courses, campus life…" />
+      <button class="send-btn" id="sendBtn" onclick="sendQuestion()">Ask →</button>
+    </div>
   </div>
+</div>
 
+<!-- How it works -->
+<div class="how-section">
+  <div class="section-label">⚙️ How it works</div>
+  <div class="steps">
+    <div class="step"><div class="step-box"><div class="step-icon">🕷️</div><p>Reviews collected from Rate My Professors</p></div><div class="arrow">→</div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">🧠</div><p>Gemini embeds & indexes with semantic search</p></div><div class="arrow">→</div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">🔍</div><p>Elastic MCP server searches semantically</p></div><div class="arrow">→</div></div>
+    <div class="step"><div class="step-box"><div class="step-icon">💡</div><p>Gemini synthesizes patterns & evidence</p></div></div>
+  </div>
 </div>
 
 <footer>
-  Built for the <a href="https://devpost.com" target="_blank">Google Cloud Rapid Agent Hackathon 2026</a> ·
-  <a href="https://github.com/srivi19/campus-voice-agent" target="_blank">GitHub</a>
+  <div>Built by <strong style="color:#4a80aa">Vi (Srividya Narayanan)</strong> · <a href="https://github.com/srivi19/campus-voice-agent" target="_blank">GitHub</a></div>
+  <div>🏆 <a href="https://devpost.com" target="_blank">Google Cloud Rapid Agent Hackathon 2026</a> · Partner Track: <strong style="color:#4a80aa">Elastic 🔍</strong></div>
+  <div>☁️ Hosted on <strong style="color:#4a80aa">Google Cloud Run</strong> · Powered by Google Cloud Agent Platform · Gemini 2.5 · Elasticsearch Serverless · Elastic MCP Server</div>
 </footer>
 
 <script>
   let selectedSchool = "";
 
-  // School filter buttons
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      selectedSchool = btn.dataset.school;
+  const CHIPS_BY_SCHOOL = {
+    "": [
+      "😤 What are UTK students complaining about most?",
+      "⚖️ How does Vanderbilt compare to UTK for engineering?",
+      "💻 What do students say about intro CS at Georgia Tech?",
+      "🌟 Which UCLA professors are most praised?",
+      "📚 What is the workload like at Duke?",
+      "🏠 What do Michigan students say about campus life?",
+    ],
+    "utk": [
+      "😤 What are students complaining about most?",
+      "🌟 Which professors are most praised?",
+      "💻 What do students say about the CS department?",
+      "📝 How is the grading at UTK?",
+    ],
+    "vanderbilt": [
+      "📚 What is the workload like at Vanderbilt?",
+      "🌟 Which professors are most loved?",
+      "⚗️ What do engineering students say?",
+      "😤 What are the biggest complaints?",
+    ],
+    "gatech": [
+      "💻 What do CS students say about Georgia Tech?",
+      "😤 What are students complaining about?",
+      "📝 How difficult are the courses?",
+      "🌟 Which professors are highly rated?",
+    ],
+    "uf": [
+      "🐊 What is student life like at UF?",
+      "😤 What are students complaining about?",
+      "🌟 Which professors are most praised?",
+      "📚 What do students say about workload?",
+    ],
+    "umich": [
+      "💛 What do Michigan students say about professors?",
+      "😤 What are the biggest complaints?",
+      "💻 How is the engineering program?",
+      "🌟 Which courses are most popular?",
+    ],
+    "ucla": [
+      "🐻 What do UCLA students say about campus life?",
+      "🌟 Which professors are most praised?",
+      "😤 What are students complaining about?",
+      "📚 What is the workload like?",
+    ],
+    "duke": [
+      "🔵 What do Duke students say about professors?",
+      "😤 What are students complaining about most?",
+      "📚 How is the academic rigor at Duke?",
+      "🌟 Which departments get the best reviews?",
+    ],
+  };
+
+  document.querySelectorAll(".uni-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".uni-tab").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      selectedSchool = tab.dataset.school;
+
+      document.getElementById("uniEmoji").textContent = tab.dataset.emoji;
+      document.getElementById("uniName").textContent = tab.dataset.name;
+      document.getElementById("uniDesc").textContent = tab.dataset.desc;
+
+      // Update chips
+      const chips = CHIPS_BY_SCHOOL[selectedSchool] || CHIPS_BY_SCHOOL[""];
+      const container = document.getElementById("chipsContainer");
+      container.innerHTML = chips.map(c => `<div class="chip">${c}</div>`).join("");
+      container.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          const text = chip.textContent.replace(/^[^\w]+/, "").trim();
+          document.getElementById("questionInput").value = text;
+          sendQuestion();
+        });
+      });
     });
   });
 
-  // Example chips
-  document.querySelectorAll(".chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.getElementById("questionInput").value = chip.textContent;
-      sendQuestion();
-    });
-  });
-
-  // Enter key
   document.getElementById("questionInput").addEventListener("keydown", e => {
     if (e.key === "Enter") sendQuestion();
   });
 
+  // Attach chip click handlers on load
+  document.querySelectorAll(".chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      const text = chip.textContent.replace(/^[^\w]+/, "").trim();
+      document.getElementById("questionInput").value = text;
+      sendQuestion();
+    });
+  });
+
+  function removeEmptyState() {
+    const el = document.getElementById("emptyState");
+    if (el) el.remove();
+  }
+
   function appendMessage(role, text) {
+    removeEmptyState();
     const win = document.getElementById("chatWindow");
     const div = document.createElement("div");
     div.className = `msg ${role}`;
-    div.innerHTML = `
-      <div class="avatar">${role === "user" ? "🙋" : "🤖"}</div>
-      <div class="bubble">${formatText(text)}</div>
-    `;
+    div.innerHTML = `<div class="avatar">${role === "user" ? "🙋" : "🤖"}</div><div class="bubble">${formatText(text)}</div>`;
     win.appendChild(div);
     win.scrollTop = win.scrollHeight;
-    return div;
   }
 
   function showTyping() {
+    removeEmptyState();
     const win = document.getElementById("chatWindow");
     const div = document.createElement("div");
     div.className = "msg bot typing";
@@ -301,7 +335,6 @@
   }
 
   function formatText(text) {
-    // Basic markdown-ish rendering
     return text
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -330,13 +363,12 @@
       appendMessage("bot", data.answer || data.error || "No response.");
     } catch (err) {
       removeTyping();
-      appendMessage("bot", "Error reaching the server. Please try again.");
+      appendMessage("bot", "⚠️ Error reaching the server. Please try again.");
     }
 
     document.getElementById("sendBtn").disabled = false;
     input.focus();
   }
 </script>
-
 </body>
 </html>
