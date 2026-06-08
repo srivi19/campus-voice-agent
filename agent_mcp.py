@@ -63,6 +63,15 @@ class MCPClient:
         self._msg_id = 0
 
     def start(self):
+        # Verify binary exists before attempting to spawn
+        if sys.platform != "win32":
+            import shutil
+            resolved = shutil.which(MCP_BIN)
+            if not resolved:
+                raise RuntimeError(
+                    f"MCP binary not found: {MCP_BIN!r}. "
+                    "Ensure @elastic/mcp-server-elasticsearch is installed globally."
+                )
         self._proc = subprocess.Popen(
             [MCP_BIN],
             stdin=subprocess.PIPE,
@@ -87,7 +96,7 @@ class MCPClient:
             "capabilities": {},
             "clientInfo": {"name": "campus-voice", "version": "1.0"},
         })
-        resp = self._wait(self._msg_id, timeout=10)
+        resp = self._wait(self._msg_id, timeout=30)
         # Send initialized notification (no response expected)
         notif = {"jsonrpc": "2.0", "method": "notifications/initialized"}
         self._write(notif)
@@ -134,7 +143,7 @@ class MCPClient:
 
     def call_tool(self, name, arguments):
         msg_id = self._send("tools/call", {"name": name, "arguments": arguments})
-        resp = self._wait(msg_id, timeout=20)
+        resp = self._wait(msg_id, timeout=30)
         if "error" in resp:
             return f"Tool error: {resp['error']}"
         content = resp.get("result", {}).get("content", [])
