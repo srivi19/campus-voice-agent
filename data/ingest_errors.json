@@ -1,0 +1,1032 @@
+[
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "PmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10222] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'PmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'PmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "P2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10350] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'P2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'P2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "QGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:578] failed to parse field [would_take_again] of type [boolean] in document with id 'QGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:579] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"James Chyz\",\"department\":\"Accounting\",\"avg_rating\":3.5,\"avg_difficulty\":3.8,\"would_take_again_pct\":100,\"course\":\"ACCT522\",\"comment\":\"This class is pretty tough, but Dr. Chyz is there to help and will go out of his way to do so. Hes easily accessible outside of class. Hes only of only 2 or 3 good professors in the MAcc. I think the tax provisions are unnecessarily difficult though.\",\"h\"[truncated 39412 bytes]; line: 1, column: 579]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"James Chyz\",\"department\":\"Accounting\",\"avg_rating\":3.5,\"avg_difficulty\":3.8,\"would_take_again_pct\":100,\"course\":\"ACCT522\",\"comment\":\"This class is pretty tough, but Dr. Chyz is there to help and will go out of his way to do so. Hes easily accessible outside of class. Hes only of only 2 or 3 good professors in the MAcc. I think the tax provisions are unnecessarily difficult though.\",\"h\"[truncated 39412 bytes]; line: 1, column: 579]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "QWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:684] failed to parse field [would_take_again] of type [boolean] in document with id 'QWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:685] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Joshua Watson\",\"department\":\"Philosophy\",\"avg_rating\":3.8,\"avg_difficulty\":2.9,\"would_take_again_pct\":66.6667,\"course\":\"PHIL101\",\"comment\":\"Watson is very passionate about philosophy! There are quizzes that are five questions that are true/false, if you do the reading, they are pretty simple. The exams were multiple choice so nothing too crazy. Attendance is not required but you proba\"[truncated 39414 bytes]; line: 1, column: 685]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Joshua Watson\",\"department\":\"Philosophy\",\"avg_rating\":3.8,\"avg_difficulty\":2.9,\"would_take_again_pct\":66.6667,\"course\":\"PHIL101\",\"comment\":\"Watson is very passionate about philosophy! There are quizzes that are five questions that are true/false, if you do the reading, they are pretty simple. The exams were multiple choice so nothing too crazy. Attendance is not required but you proba\"[truncated 39414 bytes]; line: 1, column: 685]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "QmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10565] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'QmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'QmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "Q2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10551] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'Q2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'Q2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "RGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:468] failed to parse field [would_take_again] of type [boolean] in document with id 'RGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:469] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Grady Lowery\",\"department\":\"Sociology\",\"avg_rating\":4.6,\"avg_difficulty\":1.7,\"would_take_again_pct\":94.2308,\"course\":\"110\",\"comment\":\"Professor Lowery was an amazing professor and not a tough grader! He had very interesting lectures and gave plenty of time for assignments.\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":1,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-05-04 \"[truncated 39106 bytes]; line: 1, column: 469]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Grady Lowery\",\"department\":\"Sociology\",\"avg_rating\":4.6,\"avg_difficulty\":1.7,\"would_take_again_pct\":94.2308,\"course\":\"110\",\"comment\":\"Professor Lowery was an amazing professor and not a tough grader! He had very interesting lectures and gave plenty of time for assignments.\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":1,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-05-04 \"[truncated 39106 bytes]; line: 1, column: 469]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "RWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:484] failed to parse field [would_take_again] of type [boolean] in document with id 'RWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:485] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Jacob Watkins\",\"department\":\"Geography\",\"avg_rating\":5,\"avg_difficulty\":1.6,\"would_take_again_pct\":100,\"course\":\"GEO101\",\"comment\":\"Top 5 Teachers ive ever had. Great energy. Great humor. No homework. Class had engaging lectures and was not difficult at all, but still extremely enjoyable.\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":1,\"would_take_again\":1,\"grade\":\"A+\",\"d\"[truncated 39197 bytes]; line: 1, column: 485]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Jacob Watkins\",\"department\":\"Geography\",\"avg_rating\":5,\"avg_difficulty\":1.6,\"would_take_again_pct\":100,\"course\":\"GEO101\",\"comment\":\"Top 5 Teachers ive ever had. Great energy. Great humor. No homework. Class had engaging lectures and was not difficult at all, but still extremely enjoyable.\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":1,\"would_take_again\":1,\"grade\":\"A+\",\"d\"[truncated 39197 bytes]; line: 1, column: 485]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "RmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:586] failed to parse field [would_take_again] of type [boolean] in document with id 'RmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:587] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Jacob Sanders\",\"department\":\"Biology\",\"avg_rating\":4,\"avg_difficulty\":3.1,\"would_take_again_pct\":78,\"course\":\"BIOL160\",\"comment\":\"Prof Sanders is kind and very helpful! The lectures are honestly very long and a little tedious. If you read the textbook and learn the content as you go, the quizzes and tests aren't very difficult. Your grade is also pretty padded! Great class and profess\"[truncated 39285 bytes]; line: 1, column: 587]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Jacob Sanders\",\"department\":\"Biology\",\"avg_rating\":4,\"avg_difficulty\":3.1,\"would_take_again_pct\":78,\"course\":\"BIOL160\",\"comment\":\"Prof Sanders is kind and very helpful! The lectures are honestly very long and a little tedious. If you read the textbook and learn the content as you go, the quizzes and tests aren't very difficult. Your grade is also pretty padded! Great class and profess\"[truncated 39285 bytes]; line: 1, column: 587]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "R2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10488] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'R2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'R2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "SGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:683] failed to parse field [would_take_again] of type [boolean] in document with id 'SGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:684] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Ethan Swafford\",\"department\":\"American Sign Language\",\"avg_rating\":4.8,\"avg_difficulty\":2.4,\"would_take_again_pct\":96.2963,\"course\":\"ASL111\",\"comment\":\"Ethan is an AMAZING professor. Obviously, learning a new language is difficult, but he understands that and doesn't expect us to know everything. Attendance does matter, but he is a little more lenient than others. You will have to pay\"[truncated 39425 bytes]; line: 1, column: 684]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Ethan Swafford\",\"department\":\"American Sign Language\",\"avg_rating\":4.8,\"avg_difficulty\":2.4,\"would_take_again_pct\":96.2963,\"course\":\"ASL111\",\"comment\":\"Ethan is an AMAZING professor. Obviously, learning a new language is difficult, but he understands that and doesn't expect us to know everything. Attendance does matter, but he is a little more lenient than others. You will have to pay\"[truncated 39425 bytes]; line: 1, column: 684]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "SWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10462] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'SWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'SWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "SmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:363] failed to parse field [would_take_again] of type [boolean] in document with id 'SmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:364] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Brendon  McNicholas\",\"department\":\"Chemistry\",\"avg_rating\":4.9,\"avg_difficulty\":3,\"would_take_again_pct\":100,\"course\":\"33649\",\"comment\":\"Take him if you have the chance\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":3,\"would_take_again\":1,\"grade\":\"A-\",\"date\":\"2026-04-09 00:01:38 +0000 UTC\",\"category\":\"academics\",\"embedding\":[0.0009980935,0.024028061,0.01653202,-0.021785123\"[truncated 39140 bytes]; line: 1, column: 364]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Brendon  McNicholas\",\"department\":\"Chemistry\",\"avg_rating\":4.9,\"avg_difficulty\":3,\"would_take_again_pct\":100,\"course\":\"33649\",\"comment\":\"Take him if you have the chance\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":3,\"would_take_again\":1,\"grade\":\"A-\",\"date\":\"2026-04-09 00:01:38 +0000 UTC\",\"category\":\"academics\",\"embedding\":[0.0009980935,0.024028061,0.01653202,-0.021785123\"[truncated 39140 bytes]; line: 1, column: 364]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "S2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10228] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'S2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'S2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "TGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:660] failed to parse field [would_take_again] of type [boolean] in document with id 'TGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:661] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Winston Smith\",\"department\":\"Acctg & Information Mgmt\",\"avg_rating\":3.6,\"avg_difficulty\":3,\"would_take_again_pct\":68.6957,\"course\":\"INMT242\",\"comment\":\"I spent at the very least 4 hours on this class per week. The workload was enormous but Smith walks you through each one with a video. Although, on labs and quizzes where there's no walkthrough, his directions are often extremely vague\"[truncated 39461 bytes]; line: 1, column: 661]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Winston Smith\",\"department\":\"Acctg & Information Mgmt\",\"avg_rating\":3.6,\"avg_difficulty\":3,\"would_take_again_pct\":68.6957,\"course\":\"INMT242\",\"comment\":\"I spent at the very least 4 hours on this class per week. The workload was enormous but Smith walks you through each one with a video. Although, on labs and quizzes where there's no walkthrough, his directions are often extremely vague\"[truncated 39461 bytes]; line: 1, column: 661]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "TWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10475] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'TWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'TWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "TmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10516] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'TmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'TmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "T2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:685] failed to parse field [would_take_again] of type [boolean] in document with id 'T2qYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:686] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Nicholas Sokol\",\"department\":\"Geography\",\"avg_rating\":2.7,\"avg_difficulty\":2.5,\"would_take_again_pct\":33.3333,\"course\":\"GEOG333\",\"comment\":\"Good class overall. Easy to take. A little confused in the beginning as there were some materials from a previous semester. Once things got rolling it was super easy. Quizzes each week, some larger activities once every 2-3 weeks, two tests and a \"[truncated 39476 bytes]; line: 1, column: 686]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Nicholas Sokol\",\"department\":\"Geography\",\"avg_rating\":2.7,\"avg_difficulty\":2.5,\"would_take_again_pct\":33.3333,\"course\":\"GEOG333\",\"comment\":\"Good class overall. Easy to take. A little confused in the beginning as there were some materials from a previous semester. Once things got rolling it was super easy. Quizzes each week, some larger activities once every 2-3 weeks, two tests and a \"[truncated 39476 bytes]; line: 1, column: 686]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "UGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:445] failed to parse field [would_take_again] of type [boolean] in document with id 'UGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:446] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Mark Moon\",\"department\":\"Marketing\",\"avg_rating\":4.4,\"avg_difficulty\":2.3,\"would_take_again_pct\":85.4839,\"course\":\"BUAD332\",\"comment\":\"The best teacher. Had a great teaching style and his lectures were genuinely interesting. Tests were not too hard. \",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":2,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-05-05 18:15:31 +0000 UTC\",\"ca\"[truncated 39217 bytes]; line: 1, column: 446]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Mark Moon\",\"department\":\"Marketing\",\"avg_rating\":4.4,\"avg_difficulty\":2.3,\"would_take_again_pct\":85.4839,\"course\":\"BUAD332\",\"comment\":\"The best teacher. Had a great teaching style and his lectures were genuinely interesting. Tests were not too hard. \",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":2,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-05-05 18:15:31 +0000 UTC\",\"ca\"[truncated 39217 bytes]; line: 1, column: 446]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "UWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:676] failed to parse field [would_take_again] of type [boolean] in document with id 'UWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:677] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Somer Chyz\",\"department\":\"Business\",\"avg_rating\":3.9,\"avg_difficulty\":3.5,\"would_take_again_pct\":73.5632,\"course\":\"BULW301\",\"comment\":\"Professor Chyz is so engaging, and is a great resource to learn this material from. She truly cares for her students and gives many real-life examples for you to really understand and grasp the material. There were no exams, but weekly quizzes that wer\"[truncated 39416 bytes]; line: 1, column: 677]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Somer Chyz\",\"department\":\"Business\",\"avg_rating\":3.9,\"avg_difficulty\":3.5,\"would_take_again_pct\":73.5632,\"course\":\"BULW301\",\"comment\":\"Professor Chyz is so engaging, and is a great resource to learn this material from. She truly cares for her students and gives many real-life examples for you to really understand and grasp the material. There were no exams, but weekly quizzes that wer\"[truncated 39416 bytes]; line: 1, column: 677]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "UmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:683] failed to parse field [would_take_again] of type [boolean] in document with id 'UmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:684] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Victor Ranft\",\"department\":\"Marketing\",\"avg_rating\":3.9,\"avg_difficulty\":1.7,\"would_take_again_pct\":85.7143,\"course\":\"BUAD205\",\"comment\":\"Clear class organization. You are assigned different articles/videos each week, then must write a 500-word essay and meet with a group on zoom for 20 minutes regarding such material. The class can be somewhat tedious but is an easy A if you actually\"[truncated 39494 bytes]; line: 1, column: 684]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Victor Ranft\",\"department\":\"Marketing\",\"avg_rating\":3.9,\"avg_difficulty\":1.7,\"would_take_again_pct\":85.7143,\"course\":\"BUAD205\",\"comment\":\"Clear class organization. You are assigned different articles/videos each week, then must write a 500-word essay and meet with a group on zoom for 20 minutes regarding such material. The class can be somewhat tedious but is an easy A if you actually\"[truncated 39494 bytes]; line: 1, column: 684]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "U2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10508] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'U2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'U2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "VGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:341] failed to parse field [would_take_again] of type [boolean] in document with id 'VGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:342] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Aly Fathy\",\"department\":\"Engineering\",\"avg_rating\":3.6,\"avg_difficulty\":2.9,\"would_take_again_pct\":66.6667,\"course\":\"ECE341\",\"comment\":\"Great guy.\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":3,\"would_take_again\":1,\"grade\":\"\",\"date\":\"2019-12-19 17:45:29 +0000 UTC\",\"category\":\"dining\",\"embedding\":[0.011996162,0.0074023423,0.0095776105,-0.028450832,0.003386528,0.0003670381\"[truncated 39064 bytes]; line: 1, column: 342]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Aly Fathy\",\"department\":\"Engineering\",\"avg_rating\":3.6,\"avg_difficulty\":2.9,\"would_take_again_pct\":66.6667,\"course\":\"ECE341\",\"comment\":\"Great guy.\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":3,\"would_take_again\":1,\"grade\":\"\",\"date\":\"2019-12-19 17:45:29 +0000 UTC\",\"category\":\"dining\",\"embedding\":[0.011996162,0.0074023423,0.0095776105,-0.028450832,0.003386528,0.0003670381\"[truncated 39064 bytes]; line: 1, column: 342]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "VWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:685] failed to parse field [would_take_again] of type [boolean] in document with id 'VWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:686] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Brian Stevens\",\"department\":\"Mathematics\",\"avg_rating\":4.8,\"avg_difficulty\":2.6,\"would_take_again_pct\":96.0396,\"course\":\"BAS475\",\"comment\":\"This is my second time having Brian Stevens (BAS320 also), and the reason I chose to go with him again is because he knows this is a hard program (R) , especially for non-coding wizards like myself. However, he is fair and the way he explains the \"[truncated 39400 bytes]; line: 1, column: 686]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Brian Stevens\",\"department\":\"Mathematics\",\"avg_rating\":4.8,\"avg_difficulty\":2.6,\"would_take_again_pct\":96.0396,\"course\":\"BAS475\",\"comment\":\"This is my second time having Brian Stevens (BAS320 also), and the reason I chose to go with him again is because he knows this is a hard program (R) , especially for non-coding wizards like myself. However, he is fair and the way he explains the \"[truncated 39400 bytes]; line: 1, column: 686]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "VmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10310] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'VmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'VmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "V2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10494] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'V2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'V2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "WGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:677] failed to parse field [would_take_again] of type [boolean] in document with id 'WGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:678] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Haseeb Qureshi\",\"department\":\"Business\",\"avg_rating\":5,\"avg_difficulty\":2.1,\"would_take_again_pct\":100,\"course\":\"ENT350\",\"comment\":\"Great professor, goes above and beyond. HQ is very understanding and is very knowledgeable. His class isn't mandatory, but if you don't show up you do have to watch a recording of the lecture. You have to present twice in his class but it is only for a fe\"[truncated 39420 bytes]; line: 1, column: 678]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Haseeb Qureshi\",\"department\":\"Business\",\"avg_rating\":5,\"avg_difficulty\":2.1,\"would_take_again_pct\":100,\"course\":\"ENT350\",\"comment\":\"Great professor, goes above and beyond. HQ is very understanding and is very knowledgeable. His class isn't mandatory, but if you don't show up you do have to watch a recording of the lecture. You have to present twice in his class but it is only for a fe\"[truncated 39420 bytes]; line: 1, column: 678]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "WWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10327] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'WWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'WWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "WmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:470] failed to parse field [would_take_again] of type [boolean] in document with id 'WmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:471] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Fatima Taousser\",\"department\":\"Electronic Engineering Technol\",\"avg_rating\":3,\"avg_difficulty\":2.3,\"would_take_again_pct\":55.8824,\"course\":\"ECE313\",\"comment\":\"The class itself is pretty mundane, but as long as you review the homework and slides you should pass fairly easily \",\"helpful_rating\":3,\"clarity_rating\":3,\"difficulty_rating\":2,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-05-0\"[truncated 39157 bytes]; line: 1, column: 471]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Fatima Taousser\",\"department\":\"Electronic Engineering Technol\",\"avg_rating\":3,\"avg_difficulty\":2.3,\"would_take_again_pct\":55.8824,\"course\":\"ECE313\",\"comment\":\"The class itself is pretty mundane, but as long as you review the homework and slides you should pass fairly easily \",\"helpful_rating\":3,\"clarity_rating\":3,\"difficulty_rating\":2,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-05-0\"[truncated 39157 bytes]; line: 1, column: 471]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "W2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:658] failed to parse field [would_take_again] of type [boolean] in document with id 'W2qYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:659] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Kevin Sukanek\",\"department\":\"Mathematics\",\"avg_rating\":4.5,\"avg_difficulty\":2.8,\"would_take_again_pct\":90.5263,\"course\":\"MATH132\",\"comment\":\"One of the BEST math teachers I have ever had. He helped me understand everything and he explained everything so well. He really wants everyone to pass and he gives clear instructions and examples of what's on the exams. Does a lot of examples wh\"[truncated 39400 bytes]; line: 1, column: 659]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"University of Tennessee Knoxville\",\"school_tag\":\"utk\",\"professor_name\":\"Kevin Sukanek\",\"department\":\"Mathematics\",\"avg_rating\":4.5,\"avg_difficulty\":2.8,\"would_take_again_pct\":90.5263,\"course\":\"MATH132\",\"comment\":\"One of the BEST math teachers I have ever had. He helped me understand everything and he explained everything so well. He really wants everyone to pass and he gives clear instructions and examples of what's on the exams. Does a lot of examples wh\"[truncated 39400 bytes]; line: 1, column: 659]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "XGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:678] failed to parse field [would_take_again] of type [boolean] in document with id 'XGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:679] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Peter Chesney\",\"department\":\"Architecture\",\"avg_rating\":2.4,\"avg_difficulty\":3.8,\"would_take_again_pct\":38.4615,\"course\":\"HART2770\",\"comment\":\"REALLY goofy guy. Says some outlandish stuff and the lectures are just whatever he wants to yap about. Interesting grading where he gives top half As on tests and bottom half Bs but with presentations and extra credit you will probably finish with a\"[truncated 39400 bytes]; line: 1, column: 679]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Peter Chesney\",\"department\":\"Architecture\",\"avg_rating\":2.4,\"avg_difficulty\":3.8,\"would_take_again_pct\":38.4615,\"course\":\"HART2770\",\"comment\":\"REALLY goofy guy. Says some outlandish stuff and the lectures are just whatever he wants to yap about. Interesting grading where he gives top half As on tests and bottom half Bs but with presentations and extra credit you will probably finish with a\"[truncated 39400 bytes]; line: 1, column: 679]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "XWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:676] failed to parse field [would_take_again] of type [boolean] in document with id 'XWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:677] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Maria Jorge\",\"department\":\"Biology\",\"avg_rating\":4.1,\"avg_difficulty\":2.1,\"would_take_again_pct\":90.9091,\"course\":\"BSCI2238\",\"comment\":\"Malu is a fantastic prof. Her lectures are not dense, just very thorough. She also guides you through R studio, but makes it VERY manageable for beginners. She listens to class feedback and adjusts the course accordingly. The course structure is pretty com\"[truncated 39366 bytes]; line: 1, column: 677]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Maria Jorge\",\"department\":\"Biology\",\"avg_rating\":4.1,\"avg_difficulty\":2.1,\"would_take_again_pct\":90.9091,\"course\":\"BSCI2238\",\"comment\":\"Malu is a fantastic prof. Her lectures are not dense, just very thorough. She also guides you through R studio, but makes it VERY manageable for beginners. She listens to class feedback and adjusts the course accordingly. The course structure is pretty com\"[truncated 39366 bytes]; line: 1, column: 677]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "XmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:679] failed to parse field [would_take_again] of type [boolean] in document with id 'XmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:680] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"David Lewis\",\"department\":\"Political Science\",\"avg_rating\":4.2,\"avg_difficulty\":4,\"would_take_again_pct\":67.5,\"course\":\"PSCI2253\",\"comment\":\"Professor Lewis is one of the best professors and people I have ever met. He is well-respected by everyone that takes his class. He gives great, informative lectures and students are well-prepared to do well in the class. He is a tougher grader than m\"[truncated 39404 bytes]; line: 1, column: 680]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"David Lewis\",\"department\":\"Political Science\",\"avg_rating\":4.2,\"avg_difficulty\":4,\"would_take_again_pct\":67.5,\"course\":\"PSCI2253\",\"comment\":\"Professor Lewis is one of the best professors and people I have ever met. He is well-respected by everyone that takes his class. He gives great, informative lectures and students are well-prepared to do well in the class. He is a tougher grader than m\"[truncated 39404 bytes]; line: 1, column: 680]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "X2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10424] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'X2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'X2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "YGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:631] failed to parse field [would_take_again] of type [boolean] in document with id 'YGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:632] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Thomas McGinn\",\"department\":\"Classics\",\"avg_rating\":3.8,\"avg_difficulty\":2.9,\"would_take_again_pct\":61.5385,\"course\":\"HIST2238\",\"comment\":\"The nicest most passionate professor EVER. He loves what he does and I find it so inspiring. Took him for Roman law of delicts- I was terrible at it. This class was not my strong suit by any means and I lowkey thought class was extremely boring . But I \"[truncated 39311 bytes]; line: 1, column: 632]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Thomas McGinn\",\"department\":\"Classics\",\"avg_rating\":3.8,\"avg_difficulty\":2.9,\"would_take_again_pct\":61.5385,\"course\":\"HIST2238\",\"comment\":\"The nicest most passionate professor EVER. He loves what he does and I find it so inspiring. Took him for Roman law of delicts- I was terrible at it. This class was not my strong suit by any means and I lowkey thought class was extremely boring . But I \"[truncated 39311 bytes]; line: 1, column: 632]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "YWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:674] failed to parse field [would_take_again] of type [boolean] in document with id 'YWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:675] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Annie  Klyce\",\"department\":\"Geology\",\"avg_rating\":3.5,\"avg_difficulty\":2.8,\"would_take_again_pct\":58.1395,\"course\":\"EES3340\",\"comment\":\"Class was very messy (changing field trip dates, changing attendance policy mid-semester). Labs were ridiculously long (took most of the class more than 14 hours on multiple labs). With that said, Dr. Klyce is a good professor (if you're looking to take 15\"[truncated 39474 bytes]; line: 1, column: 675]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Annie  Klyce\",\"department\":\"Geology\",\"avg_rating\":3.5,\"avg_difficulty\":2.8,\"would_take_again_pct\":58.1395,\"course\":\"EES3340\",\"comment\":\"Class was very messy (changing field trip dates, changing attendance policy mid-semester). Labs were ridiculously long (took most of the class more than 14 hours on multiple labs). With that said, Dr. Klyce is a good professor (if you're looking to take 15\"[truncated 39474 bytes]; line: 1, column: 675]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "YmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:681] failed to parse field [would_take_again] of type [boolean] in document with id 'YmqYp54BvLZveaDaWWpA'. Preview of field's value: '0'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:682] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Ravindra Duddu\",\"department\":\"Engineering\",\"avg_rating\":4.1,\"avg_difficulty\":3.4,\"would_take_again_pct\":64.2857,\"course\":\"CE2200\",\"comment\":\"Dry material, lectures don't make up for it. Duddu goes from very clear to bumbling later in the semester. Learning from the (lots of) homework helpful and a must. Tests fair but a time crunch and nitpicked for deductions. Two projects that feel point\"[truncated 39469 bytes]; line: 1, column: 682]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Ravindra Duddu\",\"department\":\"Engineering\",\"avg_rating\":4.1,\"avg_difficulty\":3.4,\"would_take_again_pct\":64.2857,\"course\":\"CE2200\",\"comment\":\"Dry material, lectures don't make up for it. Duddu goes from very clear to bumbling later in the semester. Learning from the (lots of) homework helpful and a must. Tests fair but a time crunch and nitpicked for deductions. Two projects that feel point\"[truncated 39469 bytes]; line: 1, column: 682]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "Y2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:650] failed to parse field [would_take_again] of type [boolean] in document with id 'Y2qYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:651] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Ismail  Kurun\",\"department\":\"Philosophy\",\"avg_rating\":4.4,\"avg_difficulty\":2.9,\"would_take_again_pct\":77.7778,\"course\":\"Phil1002W\",\"comment\":\"Overall great class! Ismail really knows his philosophy and communicates concepts very clearly. His lectures were extremely informative, and he was always willing to meet with students outside of class, which was really helpful. Also, Ismail really c\"[truncated 39375 bytes]; line: 1, column: 651]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Ismail  Kurun\",\"department\":\"Philosophy\",\"avg_rating\":4.4,\"avg_difficulty\":2.9,\"would_take_again_pct\":77.7778,\"course\":\"Phil1002W\",\"comment\":\"Overall great class! Ismail really knows his philosophy and communicates concepts very clearly. His lectures were extremely informative, and he was always willing to meet with students outside of class, which was really helpful. Also, Ismail really c\"[truncated 39375 bytes]; line: 1, column: 651]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "ZGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:681] failed to parse field [would_take_again] of type [boolean] in document with id 'ZGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:682] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Alexander Jacobs\",\"department\":\"American Studies\",\"avg_rating\":4.9,\"avg_difficulty\":1.9,\"would_take_again_pct\":100,\"course\":\"CAL1002\",\"comment\":\"Dr Jacobs is truly a gem. Vandy is lucky to have someone who cares as much about his students as Dr Jacobs does. Class is pretty easy, especially if you do the readings he assigns beforehand. My advice: Focus more on soaking up knowledge from Dr J\"[truncated 39419 bytes]; line: 1, column: 682]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Alexander Jacobs\",\"department\":\"American Studies\",\"avg_rating\":4.9,\"avg_difficulty\":1.9,\"would_take_again_pct\":100,\"course\":\"CAL1002\",\"comment\":\"Dr Jacobs is truly a gem. Vandy is lucky to have someone who cares as much about his students as Dr Jacobs does. Class is pretty easy, especially if you do the readings he assigns beforehand. My advice: Focus more on soaking up knowledge from Dr J\"[truncated 39419 bytes]; line: 1, column: 682]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "ZWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10395] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'ZWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'ZWqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "ZmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10223] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'ZmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'ZmqYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "Z2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:679] failed to parse field [would_take_again] of type [boolean] in document with id 'Z2qYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:680] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Daniel Levin\",\"department\":\"Psychology\",\"avg_rating\":2.8,\"avg_difficulty\":3.4,\"would_take_again_pct\":41.0256,\"course\":\"PSYPC1205\",\"comment\":\"Levin is a solid lecturer and cares about his students, but this class is so much harder than it should be. He assigns a lot of textbook reading and expects you to know every detail of it. His grading criteria for tests and projects is very unclear, y\"[truncated 39411 bytes]; line: 1, column: 680]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Daniel Levin\",\"department\":\"Psychology\",\"avg_rating\":2.8,\"avg_difficulty\":3.4,\"would_take_again_pct\":41.0256,\"course\":\"PSYPC1205\",\"comment\":\"Levin is a solid lecturer and cares about his students, but this class is so much harder than it should be. He assigns a lot of textbook reading and expects you to know every detail of it. His grading criteria for tests and projects is very unclear, y\"[truncated 39411 bytes]; line: 1, column: 680]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "aGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:672] failed to parse field [would_take_again] of type [boolean] in document with id 'aGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:673] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Catherine Molineux\",\"department\":\"History\",\"avg_rating\":3.9,\"avg_difficulty\":2.8,\"would_take_again_pct\":83.3333,\"course\":\"HIST1111\",\"comment\":\"The class was pretty straight-forward. The lectures can be boring, but the work load is manageable. She is a pretty fair grader. There are smaller writing assignments, but you only do 4/9. There are also two longer papers due at the end of the semes\"[truncated 39442 bytes]; line: 1, column: 673]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Catherine Molineux\",\"department\":\"History\",\"avg_rating\":3.9,\"avg_difficulty\":2.8,\"would_take_again_pct\":83.3333,\"course\":\"HIST1111\",\"comment\":\"The class was pretty straight-forward. The lectures can be boring, but the work load is manageable. She is a pretty fair grader. There are smaller writing assignments, but you only do 4/9. There are also two longer papers due at the end of the semes\"[truncated 39442 bytes]; line: 1, column: 673]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "aWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:553] failed to parse field [would_take_again] of type [boolean] in document with id 'aWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:554] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"David Hyde\",\"department\":\"Computer Science\",\"avg_rating\":2.9,\"avg_difficulty\":3.8,\"would_take_again_pct\":37.5,\"course\":\"CS3250\",\"comment\":\"Super flexible given COVID and was really nice to talk to during office hours. Main problems with the class stem from Vandy Algos itself (bad pacing, expects students to have prior knowledge, etc.) but David did a great job.\",\"helpful_rating\":5,\"clarity\"[truncated 39276 bytes]; line: 1, column: 554]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"David Hyde\",\"department\":\"Computer Science\",\"avg_rating\":2.9,\"avg_difficulty\":3.8,\"would_take_again_pct\":37.5,\"course\":\"CS3250\",\"comment\":\"Super flexible given COVID and was really nice to talk to during office hours. Main problems with the class stem from Vandy Algos itself (bad pacing, expects students to have prior knowledge, etc.) but David did a great job.\",\"helpful_rating\":5,\"clarity\"[truncated 39276 bytes]; line: 1, column: 554]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "amqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:655] failed to parse field [would_take_again] of type [boolean] in document with id 'amqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:656] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Alexandre Frenette\",\"department\":\"Sociology\",\"avg_rating\":4.9,\"avg_difficulty\":2.6,\"would_take_again_pct\":93.1034,\"course\":\"SOC3615\",\"comment\":\"Professor Frenette has a really fun dynamic in the classroom. He cares about what he teaches and encourages classroom discussion. There are pop-quizzes, and the workload can be a lot if you don't get started early. Overall, I learned a lot from the\"[truncated 39410 bytes]; line: 1, column: 656]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Alexandre Frenette\",\"department\":\"Sociology\",\"avg_rating\":4.9,\"avg_difficulty\":2.6,\"would_take_again_pct\":93.1034,\"course\":\"SOC3615\",\"comment\":\"Professor Frenette has a really fun dynamic in the classroom. He cares about what he teaches and encourages classroom discussion. There are pop-quizzes, and the workload can be a lot if you don't get started early. Overall, I learned a lot from the\"[truncated 39410 bytes]; line: 1, column: 656]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "a2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:686] failed to parse field [would_take_again] of type [boolean] in document with id 'a2qYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:687] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Meaghan Mundy\",\"department\":\"Human Development\",\"avg_rating\":3.3,\"avg_difficulty\":1.9,\"would_take_again_pct\":55.5556,\"course\":\"HOD3650\",\"comment\":\"This class is a life-changer, no joke. If you live w doubts, fear, comparison to others, overstretching yourself, and you want to break free, this class will do it. Only time I've left a class with a new direction and worldview (course fmrly tau\"[truncated 39412 bytes]; line: 1, column: 687]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Meaghan Mundy\",\"department\":\"Human Development\",\"avg_rating\":3.3,\"avg_difficulty\":1.9,\"would_take_again_pct\":55.5556,\"course\":\"HOD3650\",\"comment\":\"This class is a life-changer, no joke. If you live w doubts, fear, comparison to others, overstretching yourself, and you want to break free, this class will do it. Only time I've left a class with a new direction and worldview (course fmrly tau\"[truncated 39412 bytes]; line: 1, column: 687]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "bGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:349] failed to parse field [would_take_again] of type [boolean] in document with id 'bGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:350] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"James Pask\",\"department\":\"Biology\",\"avg_rating\":2.9,\"avg_difficulty\":3.4,\"would_take_again_pct\":45.8716,\"course\":\"1510L\",\"comment\":\"Professor Pask is excellent\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":2,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-02-09 22:58:55 +0000 UTC\",\"category\":\"academics\",\"embedding\":[0.0062615136,0.016909335,-0.0028392244,0.0013208954,-0.00781736\"[truncated 39052 bytes]; line: 1, column: 350]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"James Pask\",\"department\":\"Biology\",\"avg_rating\":2.9,\"avg_difficulty\":3.4,\"would_take_again_pct\":45.8716,\"course\":\"1510L\",\"comment\":\"Professor Pask is excellent\",\"helpful_rating\":5,\"clarity_rating\":5,\"difficulty_rating\":2,\"would_take_again\":1,\"grade\":\"A\",\"date\":\"2026-02-09 22:58:55 +0000 UTC\",\"category\":\"academics\",\"embedding\":[0.0062615136,0.016909335,-0.0028392244,0.0013208954,-0.00781736\"[truncated 39052 bytes]; line: 1, column: 350]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "bWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:660] failed to parse field [would_take_again] of type [boolean] in document with id 'bWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:661] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Steven Wenz\",\"department\":\"Languages\",\"avg_rating\":4.8,\"avg_difficulty\":2.3,\"would_take_again_pct\":95.6522,\"course\":\"SPAN2201\",\"comment\":\"Professor Wenz is by FAR and HANDS DOWN the BEST professor at Vanderbilt University. I don't know a single person that has taken his class and dislikes him. In fact, anyone that takes any of his class sections raves about him. If you come to class, parti\"[truncated 39317 bytes]; line: 1, column: 661]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Steven Wenz\",\"department\":\"Languages\",\"avg_rating\":4.8,\"avg_difficulty\":2.3,\"would_take_again_pct\":95.6522,\"course\":\"SPAN2201\",\"comment\":\"Professor Wenz is by FAR and HANDS DOWN the BEST professor at Vanderbilt University. I don't know a single person that has taken his class and dislikes him. In fact, anyone that takes any of his class sections raves about him. If you come to class, parti\"[truncated 39317 bytes]; line: 1, column: 661]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "bmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:650] failed to parse field [would_take_again] of type [boolean] in document with id 'bmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:651] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Mark Wisniewski\",\"department\":\"English\",\"avg_rating\":4.9,\"avg_difficulty\":1.9,\"would_take_again_pct\":100,\"course\":\"ENGL1100\",\"comment\":\"I got lazy senior year and skipped taking the AP English exam. After hearing I had to take ENGL 1100 I was pissed. However, Professor W made this class actually enjoyable. He truly cares about his students and checks in with us often. While the class itsel\"[truncated 39376 bytes]; line: 1, column: 651]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Mark Wisniewski\",\"department\":\"English\",\"avg_rating\":4.9,\"avg_difficulty\":1.9,\"would_take_again_pct\":100,\"course\":\"ENGL1100\",\"comment\":\"I got lazy senior year and skipped taking the AP English exam. After hearing I had to take ENGL 1100 I was pissed. However, Professor W made this class actually enjoyable. He truly cares about his students and checks in with us often. While the class itsel\"[truncated 39376 bytes]; line: 1, column: 651]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "b2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10241] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'b2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'b2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "cGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:681] failed to parse field [would_take_again] of type [boolean] in document with id 'cGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:682] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Katherine Clements\",\"department\":\"Chemistry\",\"avg_rating\":4.1,\"avg_difficulty\":3.8,\"would_take_again_pct\":83.3333,\"course\":\"CHEM2221\",\"comment\":\"Dr. Clements is a solid choice for orgo. It's a tough class regardless, but she makes the content very approachable. Lots of in-class practice + LA collaboration make lectures engaging and helpful. Exams are tough but fair and are very predictable\"[truncated 39394 bytes]; line: 1, column: 682]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Katherine Clements\",\"department\":\"Chemistry\",\"avg_rating\":4.1,\"avg_difficulty\":3.8,\"would_take_again_pct\":83.3333,\"course\":\"CHEM2221\",\"comment\":\"Dr. Clements is a solid choice for orgo. It's a tough class regardless, but she makes the content very approachable. Lots of in-class practice + LA collaboration make lectures engaging and helpful. Exams are tough but fair and are very predictable\"[truncated 39394 bytes]; line: 1, column: 682]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "cWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:682] failed to parse field [would_take_again] of type [boolean] in document with id 'cWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:683] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Steven Townsend\",\"department\":\"Chemistry\",\"avg_rating\":4.6,\"avg_difficulty\":4.2,\"would_take_again_pct\":98.4127,\"course\":\"CHEM2212\",\"comment\":\"Heard that S-Class Steve was back in Orgo 2! Great organic chemist. He won't ever say it, but he's also famous. Super helpful office hours. Exams are tough, but fair. He legit goes over the topic of each question before the exam. He cares that you le\"[truncated 39350 bytes]; line: 1, column: 683]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Steven Townsend\",\"department\":\"Chemistry\",\"avg_rating\":4.6,\"avg_difficulty\":4.2,\"would_take_again_pct\":98.4127,\"course\":\"CHEM2212\",\"comment\":\"Heard that S-Class Steve was back in Orgo 2! Great organic chemist. He won't ever say it, but he's also famous. Super helpful office hours. Exams are tough, but fair. He legit goes over the topic of each question before the exam. He cares that you le\"[truncated 39350 bytes]; line: 1, column: 683]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "cmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:681] failed to parse field [would_take_again] of type [boolean] in document with id 'cmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:682] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Carrie Jones\",\"department\":\"Neuroscience\",\"avg_rating\":4.2,\"avg_difficulty\":2.9,\"would_take_again_pct\":69.2308,\"course\":\"NSC3245\",\"comment\":\"Drug Discovery was one of my favorite classes. It's a group project across the semester and if you pull your weight you will get an A. Definitely a different format than other classes and takes a second to get used to, but Dr. Jones is so caring and r\"[truncated 39402 bytes]; line: 1, column: 682]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Carrie Jones\",\"department\":\"Neuroscience\",\"avg_rating\":4.2,\"avg_difficulty\":2.9,\"would_take_again_pct\":69.2308,\"course\":\"NSC3245\",\"comment\":\"Drug Discovery was one of my favorite classes. It's a group project across the semester and if you pull your weight you will get an A. Definitely a different format than other classes and takes a second to get used to, but Dr. Jones is so caring and r\"[truncated 39402 bytes]; line: 1, column: 682]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "c2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:675] failed to parse field [would_take_again] of type [boolean] in document with id 'c2qYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:676] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"David Florian\",\"department\":\"Engineering\",\"avg_rating\":4.4,\"avg_difficulty\":3.5,\"would_take_again_pct\":78.2609,\"course\":\"DF2100\",\"comment\":\"Awesome class- can't recommend it enough, super beneficial and applicable. \\nI had absolutely no previous experience in any area of the course, and Dr. Florian did a great job making the content accessible. Projects were time-consuming but fun. Dr. Flo\"[truncated 39478 bytes]; line: 1, column: 676]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"David Florian\",\"department\":\"Engineering\",\"avg_rating\":4.4,\"avg_difficulty\":3.5,\"would_take_again_pct\":78.2609,\"course\":\"DF2100\",\"comment\":\"Awesome class- can't recommend it enough, super beneficial and applicable. \\nI had absolutely no previous experience in any area of the course, and Dr. Florian did a great job making the content accessible. Projects were time-consuming but fun. Dr. Flo\"[truncated 39478 bytes]; line: 1, column: 676]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "dGqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:683] failed to parse field [would_take_again] of type [boolean] in document with id 'dGqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:684] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Gilbert Gonzales\",\"department\":\"Health Science\",\"avg_rating\":4.9,\"avg_difficulty\":1.9,\"would_take_again_pct\":92.3077,\"course\":\"MHS3890\",\"comment\":\"I cannot speak more highly of Dr. Gonzales nor this class. It was an absolutely wonderful class to just learn about health care and gain perspective on current events. The class is extremely chill; Dr. Gonzales really cares more that you learn s\"[truncated 39466 bytes]; line: 1, column: 684]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Gilbert Gonzales\",\"department\":\"Health Science\",\"avg_rating\":4.9,\"avg_difficulty\":1.9,\"would_take_again_pct\":92.3077,\"course\":\"MHS3890\",\"comment\":\"I cannot speak more highly of Dr. Gonzales nor this class. It was an absolutely wonderful class to just learn about health care and gain perspective on current events. The class is extremely chill; Dr. Gonzales really cares more that you learn s\"[truncated 39466 bytes]; line: 1, column: 684]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "dWqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:639] failed to parse field [would_take_again] of type [boolean] in document with id 'dWqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:640] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Robert Barsky\",\"department\":\"English\",\"avg_rating\":4.9,\"avg_difficulty\":1.7,\"would_take_again_pct\":100,\"course\":\"FREN3730\",\"comment\":\"For FREN3891. Second class with this man, still adore him. Amazing, knowledgeable man who cares very deeply for all of his students and wants the best for them. Attendance isn't mandatory and an A is guaranteed, but for those who do care beyond the A, assign\"[truncated 39459 bytes]; line: 1, column: 640]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Robert Barsky\",\"department\":\"English\",\"avg_rating\":4.9,\"avg_difficulty\":1.7,\"would_take_again_pct\":100,\"course\":\"FREN3730\",\"comment\":\"For FREN3891. Second class with this man, still adore him. Amazing, knowledgeable man who cares very deeply for all of his students and wants the best for them. Attendance isn't mandatory and an A is guaranteed, but for those who do care beyond the A, assign\"[truncated 39459 bytes]; line: 1, column: 640]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "dmqYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:613] failed to parse field [would_take_again] of type [boolean] in document with id 'dmqYp54BvLZveaDaWWpA'. Preview of field's value: '1'",
+        "caused_by": {
+          "type": "x_content_parse_exception",
+          "reason": "[1:614] Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Cristina Zepeda\",\"department\":\"Psychology\",\"avg_rating\":5,\"avg_difficulty\":2,\"would_take_again_pct\":100,\"course\":\"Psy-pc2550\",\"comment\":\"I truly could not say enough amazing things about Dr. Z. She is not only a great teacher who truly cares about your learning, but she's such a kind amazing person. There are 3 exams, no final, and one semester long infographic. I wish she taught other cla\"[truncated 39396 bytes]; line: 1, column: 614]",
+          "caused_by": {
+            "type": "json_parse_exception",
+            "reason": "Current token (VALUE_NUMBER_INT) not of boolean type\n at [Source: (byte[])\"{\"source\":\"rate_my_professors\",\"school\":\"Vanderbilt University\",\"school_tag\":\"vanderbilt\",\"professor_name\":\"Cristina Zepeda\",\"department\":\"Psychology\",\"avg_rating\":5,\"avg_difficulty\":2,\"would_take_again_pct\":100,\"course\":\"Psy-pc2550\",\"comment\":\"I truly could not say enough amazing things about Dr. Z. She is not only a great teacher who truly cares about your learning, but she's such a kind amazing person. There are 3 exams, no final, and one semester long infographic. I wish she taught other cla\"[truncated 39396 bytes]; line: 1, column: 614]"
+          }
+        }
+      }
+    }
+  },
+  {
+    "index": {
+      "_index": "campus_reviews",
+      "_id": "d2qYp54BvLZveaDaWWpA",
+      "status": 400,
+      "error": {
+        "type": "document_parsing_exception",
+        "reason": "[1:10405] failed to parse: The [dense_vector] field [embedding] in doc [document with id 'd2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]",
+        "caused_by": {
+          "type": "illegal_argument_exception",
+          "reason": "The [dense_vector] field [embedding] in doc [document with id 'd2qYp54BvLZveaDaWWpA'] has more dimensions than defined in the mapping [768]"
+        }
+      }
+    }
+  }
+]
