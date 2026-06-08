@@ -48,7 +48,10 @@ When answering:
 1. Use the search tool to find relevant reviews — filter by school_tag when asked
 2. If comparing two schools, search each separately
 3. Synthesize patterns — cite numbers, quote reviews briefly
-4. Be direct. Start with findings, no preamble."""
+4. Be direct. Start with findings, no preamble.
+5. NEVER use aggregations (aggs/aggregations key) in queries — they return 0 results.
+   Instead, fetch reviews with a high 'size' (e.g. 50-100) and sort by avg_rating or helpful_rating descending to find top professors or trends.
+   Example for "most praised professors": search with size:50, sort by avg_rating desc, filter by school_tag."""
 
 
 # ── Simple synchronous JSON-RPC client ────────────────────────────────────────
