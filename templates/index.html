@@ -38,19 +38,19 @@
 
     /* ── University Tabs ── */
     .uni-tabs-wrapper { max-width: 960px; margin: 0 auto; padding: 10px 20px 0; }
-    .uni-tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+    .uni-tabs { display: flex; gap: 4px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
     .uni-tabs::-webkit-scrollbar { display: none; }
     .uni-tab {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 10px 10px 0 0;
+      display: flex; align-items: center; gap: 5px;
+      padding: 7px 10px; border-radius: 8px 8px 0 0;
       border: 1px solid #2a5080; border-bottom: none;
       background: linear-gradient(180deg, #1a3a5c 0%, #0f2540 100%);
-      color: #90c4e8; font-size: 13px; cursor: pointer; white-space: nowrap;
+      color: #90c4e8; font-size: 12px; cursor: pointer; white-space: nowrap;
       transition: all 0.2s; flex-shrink: 0;
     }
     .uni-tab:hover { background: linear-gradient(180deg, #1e4a74 0%, #142e52 100%); color: #c0dff5; border-color: #3a70a8; }
     .uni-tab.active { background: #dbeafe; color: #1e3a6e; border-color: #3b82f6; border-bottom: 2px solid #dbeafe; font-weight: 700; }
-    .uni-tab .uni-emoji { font-size: 16px; }
+    .uni-tab .uni-emoji { font-size: 14px; }
 
     /* ── Chat Panel ── */
     .chat-panel { max-width: 960px; margin: 0 auto; padding: 0 20px 16px; }
@@ -215,12 +215,12 @@
 <div class="hero">
   <div class="hero-icon">🎓</div>
   <h1>Campus<span>Voice</span></h1>
-  <p>Ask anything about professors, courses, or workload across 7 universities — get synthesized answers with real student quotes, from 6,773 Rate My Professors reviews.</p>
+  <p>Ask anything about professors, courses, or workload across 7 universities — get synthesized answers with real student quotes, from 13,192 student reviews across Rate My Professors and College Confidential.</p>
 </div>
 
 <!-- Stat Banner -->
 <div class="stat-banner">
-  <div class="stat-item"><span class="stat-num">6,773</span><span class="stat-label">Student Reviews</span></div>
+  <div class="stat-item"><span class="stat-num">13,192</span><span class="stat-label">Student Reviews</span></div>
   <div class="stat-divider">|</div>
   <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">Universities</span></div>
   <div class="stat-divider">|</div>
@@ -289,7 +289,7 @@
 <div class="uni-tabs-wrapper">
   <div class="uni-tabs" id="uniTabs">
     <div class="uni-tab active" data-school="" data-name="All Universities" data-emoji="🌎" data-desc="Search across all 7 universities at once">
-      <span class="uni-emoji">🌎</span> All Universities
+      <span class="uni-emoji">🌎</span> All
     </div>
     <div class="uni-tab" data-school="utk" data-name="Univ. of Tennessee (UTK)" data-emoji="🟠" data-desc="Public flagship university in Knoxville, Tennessee">
       <span class="uni-emoji">🟠</span> UTK
@@ -298,10 +298,10 @@
       <span class="uni-emoji">⭐</span> Vanderbilt
     </div>
     <div class="uni-tab" data-school="gatech" data-name="Georgia Tech" data-emoji="🐝" data-desc="Top-ranked public research university in Atlanta, Georgia">
-      <span class="uni-emoji">🐝</span> Georgia Tech
+      <span class="uni-emoji">🐝</span> Ga Tech
     </div>
     <div class="uni-tab" data-school="uf" data-name="University of Florida" data-emoji="🐊" data-desc="Large public research university in Gainesville, Florida">
-      <span class="uni-emoji">🐊</span> Univ. of Florida
+      <span class="uni-emoji">🐊</span> Florida
     </div>
     <div class="uni-tab" data-school="umich" data-name="University of Michigan" data-emoji="💛" data-desc="Prestigious public university in Ann Arbor, Michigan">
       <span class="uni-emoji">💛</span> Michigan
@@ -396,7 +396,7 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">What data does CampusVoice use?<span class="arrow">▼</span></div>
-      <div class="faq-a">CampusVoice uses 6,773 real student reviews from Rate My Professors, covering professor quality, grading, course difficulty, and teaching style across 7 US universities.</div>
+      <div class="faq-a">CampusVoice uses 13,192 real student reviews from Rate My Professors and College Confidential, covering professor quality, grading, course difficulty, and teaching style across 7 US universities.</div>
     </div>
 
     <div class="faq-item">
@@ -421,7 +421,7 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How current is the data? <span class="arrow">▼</span></div>
-      <div class="faq-a">The reviews were collected in June 2026 from Rate My Professors. Data is not updated in real time but reflects the most recent reviews available at collection time.</div>
+      <div class="faq-a">The reviews were collected in June 2026 from Rate My Professors and College Confidential. Data is not updated in real time but reflects the most recent reviews available at collection time.</div>
     </div>
 
     <div class="faq-item">
@@ -455,7 +455,7 @@
 <footer>
   <div>Built by <strong style="color:#4a80aa">Vi (Srividya Narayanan)</strong> · <a href="https://github.com/srivi19/campus-voice-agent" target="_blank">GitHub</a></div>
   <div>🏆 <a href="https://devpost.com" target="_blank">Google Cloud Rapid Agent Hackathon 2026</a> · Partner Track: <strong style="color:#4a80aa">Elastic 🔍</strong></div>
-  <div>☁️ Hosted on <strong style="color:#4a80aa">Google Cloud Run</strong> · Gemini 2.5 · Elasticsearch Serverless · Elastic MCP Server · Rate My Professors</div>
+  <div>☁️ Hosted on <strong style="color:#4a80aa">Google Cloud Run</strong> · Gemini 2.5 · Elasticsearch Serverless · Elastic MCP Server · Rate My Professors · College Confidential</div>
 </footer>
 
 <script>
