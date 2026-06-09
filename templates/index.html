@@ -19,6 +19,13 @@
     .hero-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .hero-badge { background: #0d1f35; border: 1px solid #1e4060; color: #5a9ece; font-size: 12px; padding: 5px 14px; border-radius: 20px; }
 
+    /* ── Stat Banner ── */
+    .stat-banner { display: flex; justify-content: center; align-items: center; gap: 0; background: linear-gradient(90deg, #0d1b2e, #0f2540, #0d1b2e); border-bottom: 1px solid #1a3050; padding: 14px 24px; flex-wrap: wrap; gap: 4px 0; }
+    .stat-item { display: flex; flex-direction: column; align-items: center; padding: 0 28px; }
+    .stat-num { font-size: 18px; font-weight: 800; color: #4a9ede; letter-spacing: -0.3px; }
+    .stat-label { font-size: 10px; color: #4a7a9a; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+    .stat-divider { color: #1a3050; font-size: 20px; }
+
     /* ── Personas ── */
     .for-section { padding: 28px 24px; max-width: 960px; margin: 0 auto; }
     .section-label { font-size: 13px; font-weight: 600; color: #4a7a9a; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; text-align: center; }
@@ -65,6 +72,7 @@
     .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 160px; color: #6090c0; text-align: center; gap: 8px; }
     .empty-state .big-icon { font-size: 36px; }
     .empty-state p { font-size: 13px; }
+    .example-label { font-size: 10px; font-weight: 700; color: #93c5fd; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; padding: 4px 0 2px; opacity: 0.7; }
 
     .msg { display: flex; gap: 10px; align-items: flex-start; }
     .msg.user { flex-direction: row-reverse; }
@@ -91,6 +99,13 @@
     .send-btn { background: #1d4ed8; border: none; border-radius: 8px; padding: 8px 18px; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
     .send-btn:hover { background: #1e40af; }
     .send-btn:disabled { background: #bfdbfe; color: #7aabda; cursor: not-allowed; }
+    .chat-disclaimer { font-size: 11px; color: #6090c0; text-align: center; margin-top: 8px; }
+    .mic-btn { background: #eff6ff; border: 1px solid #93c5fd; border-radius: 8px; padding: 8px 10px; font-size: 15px; cursor: pointer; transition: all 0.2s; flex-shrink: 0; line-height: 1; }
+    .mic-btn:hover { border-color: #3b82f6; background: #dbeafe; }
+    .mic-btn.listening { border-color: #ef4444; background: #fef2f2; animation: mic-pulse 1s infinite; }
+    @keyframes mic-pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    .copy-btn { display: inline-block; margin-top: 10px; background: none; border: 1px solid #93c5fd; border-radius: 6px; padding: 3px 10px; color: #3b6aa0; font-size: 11px; cursor: pointer; transition: all 0.2s; }
+    .copy-btn:hover { background: #eff6ff; color: #1d4ed8; border-color: #3b82f6; }
 
     /* ── How it works ── */
     .how-section { border-top: 1px solid #0f2030; padding: 28px 24px; max-width: 960px; margin: 0 auto; text-align: center; }
@@ -125,7 +140,7 @@
     .recent-toggle:hover span { color: #90c4e8; }
 
     /* ── Page Nav ── */
-    .page-nav { background: #060d18; border-bottom: 2px solid #1a3050; display: flex; justify-content: center; gap: 4px; padding: 0 24px; }
+    .page-nav { position: sticky; top: 0; z-index: 100; background: #060d18; border-bottom: 2px solid #1a3050; display: flex; justify-content: center; gap: 4px; padding: 0 24px; }
     .page-nav-btn { padding: 14px 28px; font-size: 13px; font-weight: 600; color: #4a7a9a; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.02em; }
     .page-nav-btn:hover { color: #90c4e8; }
     .page-nav-btn.active { color: #4a9ede; border-bottom-color: #4a9ede; }
@@ -180,7 +195,18 @@
 <div class="hero">
   <div class="hero-icon">🎓</div>
   <h1>Campus<span>Voice</span></h1>
-  <p>Stop reading hundreds of reviews manually. Ask a plain-English question, get a synthesized answer — from 6,800+ real student reviews across 7 US universities.</p>
+  <p>Ask anything about professors, courses, or workload across 7 universities — get synthesized answers with real student quotes, from 6,773 Rate My Professors reviews.</p>
+</div>
+
+<!-- Stat Banner -->
+<div class="stat-banner">
+  <div class="stat-item"><span class="stat-num">6,773</span><span class="stat-label">Student Reviews</span></div>
+  <div class="stat-divider">|</div>
+  <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">Universities</span></div>
+  <div class="stat-divider">|</div>
+  <div class="stat-item"><span class="stat-num">Gemini 2.5</span><span class="stat-label">AI Model</span></div>
+  <div class="stat-divider">|</div>
+  <div class="stat-item"><span class="stat-num">June 2026</span><span class="stat-label">Data Updated</span></div>
 </div>
 
 <!-- Who it's for -->
@@ -281,17 +307,25 @@
     </div>
 
     <div class="chat-window" id="chatWindow">
-      <div class="empty-state" id="emptyState">
-        <div class="big-icon">💬</div>
-        <p>Select a university tab and ask anything about<br>student life, professors, or courses.</p>
-      </div>
+      <div class="example-label">✨ Example — click any chip or type your own question below</div>
+      <div class="msg user"><div class="avatar">🙋</div><div class="bubble">What are UTK students complaining about most?</div></div>
+      <div class="msg bot"><div class="avatar">🤖</div><div class="bubble">
+        <strong>Top complaints at UTK</strong> center on <strong>grading inconsistency</strong>, <strong>unclear expectations</strong>, and professors who are hard to reach outside class.<br><br>
+        Prof. Alan Becker (Mathematics): <em>"The exams had nothing to do with the homework. Half the class failed the midterm and she refused to curve."</em><br><br>
+        Prof. Daniel Ross (Chemistry): <em>"Lectures are just him reading off PowerPoints. No examples, no engagement. If you ask a question he looks annoyed."</em><br><br>
+        Prof. Kevin Shaw (Engineering): <em>"He lost my final project and gave me a zero without checking. Took weeks to fix."</em><br><br>
+        <strong>Pattern across 15+ reviews:</strong> Engineering and Chemistry have the most negative mentions. Students consistently flag professors who are unavailable outside class and courses where exams don't match the syllabus.
+        <button class="copy-btn" onclick="copyResponse(this)">📋 Copy</button>
+      </div></div>
     </div>
 
     <div class="input-row">
       <span class="robot-icon">🤖</span>
       <input type="text" id="questionInput" placeholder="Ask me anything about professors, courses, campus life…" />
+      <button class="mic-btn" id="micBtn" onclick="startVoiceInput()" title="Ask with voice">🎤</button>
       <button class="send-btn" id="sendBtn" onclick="sendQuestion()">Ask →</button>
     </div>
+    <div class="chat-disclaimer">📚 Data covers <strong>professor reviews only</strong> (quality, grading, difficulty, workload) — not housing, dining, sports, or admissions.</div>
   </div>
 </div>
 
@@ -339,7 +373,7 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">What data does CampusVoice use? <span class="arrow">▼</span></div>
-      <div class="faq-a">CampusVoice uses 6,700+ real student reviews from Rate My Professors, covering professor quality, grading, course difficulty, and teaching style across 7 US universities.</div>
+      <div class="faq-a">CampusVoice uses 6,773 real student reviews from Rate My Professors, covering professor quality, grading, course difficulty, and teaching style across 7 US universities.</div>
     </div>
 
     <div class="faq-item">
@@ -400,6 +434,7 @@
     document.querySelectorAll(".page-nav-btn").forEach(b => b.classList.remove("active"));
     document.getElementById("page-" + name).classList.add("active");
     btn.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function toggleFaq(el) {
@@ -508,9 +543,22 @@
     const win = document.getElementById("chatWindow");
     const div = document.createElement("div");
     div.className = `msg ${role}`;
-    div.innerHTML = `<div class="avatar">${role === "user" ? "🙋" : "🤖"}</div><div class="bubble">${formatText(text)}</div>`;
+    const copyBtn = role === "bot" ? `<button class="copy-btn" onclick="copyResponse(this)">📋 Copy</button>` : "";
+    div.innerHTML = `<div class="avatar">${role === "user" ? "🙋" : "🤖"}</div><div class="bubble">${formatText(text)}${copyBtn}</div>`;
     win.appendChild(div);
     win.scrollTop = win.scrollHeight;
+  }
+
+  function copyResponse(btn) {
+    const bubble = btn.closest(".bubble");
+    const text = bubble.innerText.replace(/📋 Copy|✅ Copied!/g, "").trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = "✅ Copied!";
+      setTimeout(() => { btn.textContent = "📋 Copy"; }, 2000);
+    }).catch(() => {
+      btn.textContent = "⚠️ Failed";
+      setTimeout(() => { btn.textContent = "📋 Copy"; }, 2000);
+    });
   }
 
   function showTyping() {
@@ -569,6 +617,43 @@
 
     document.getElementById("sendBtn").disabled = false;
     input.focus();
+  }
+
+  function startVoiceInput() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) {
+      alert("Voice input requires Chrome or Edge. Please try those browsers.");
+      return;
+    }
+    const micBtn = document.getElementById("micBtn");
+    const input = document.getElementById("questionInput");
+    const recognition = new SR();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    micBtn.classList.add("listening");
+    micBtn.textContent = "🔴";
+    micBtn.disabled = true;
+
+    recognition.onresult = (e) => {
+      input.value = e.results[0][0].transcript;
+      micBtn.classList.remove("listening");
+      micBtn.textContent = "🎤";
+      micBtn.disabled = false;
+      sendQuestion();
+    };
+    recognition.onerror = () => {
+      micBtn.classList.remove("listening");
+      micBtn.textContent = "🎤";
+      micBtn.disabled = false;
+    };
+    recognition.onend = () => {
+      micBtn.classList.remove("listening");
+      micBtn.textContent = "🎤";
+      micBtn.disabled = false;
+    };
+    recognition.start();
   }
 </script>
 </body>
