@@ -366,7 +366,7 @@
 <!-- ══════════ TECH STACK PAGE ══════════ -->
 <div class="page-section" id="page-techstack">
   <div class="video-section">
-    <h2>🏗️ Tech Stack &amp; Architecture</h2>
+    <h2>Tech Stack &amp; Architecture</h2>
     <p>How CampusVoice is built — data pipeline, agent loop, and deployment.</p>
 
     <!-- How it works (moved from Chat page) -->
@@ -389,10 +389,10 @@
 <!-- ══════════ FAQ PAGE ══════════ -->
 <div class="page-section" id="page-faq">
   <div class="faq-section">
-    <h2>❓ Frequently Asked Questions</h2>
+    <h2>Frequently Asked Questions</h2>
 
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">What data does CampusVoice use? <span class="arrow">▼</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">What data does CampusVoice use?<span class="arrow">▼</span></div>
       <div class="faq-a">CampusVoice uses 6,773 real student reviews from Rate My Professors, covering professor quality, grading, course difficulty, and teaching style across 7 US universities.</div>
     </div>
 
@@ -403,12 +403,17 @@
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Can I ask about a specific professor? <span class="arrow">▼</span></div>
-      <div class="faq-a">Yes! Try asking "Is Professor [Last Name] good at [University]?" and CampusVoice will search for reviews of that specific professor.</div>
+      <div class="faq-a">Yes — try "Is Professor [Last Name] good at [University]?" CampusVoice will find reviews for that professor and surface patterns across them. Note: the AI presents student review patterns, not its own verdict on any individual professor.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Are the quotes really verbatim? How do you prevent hallucination? <span class="arrow">▼</span></div>
+      <div class="faq-a"><strong>Yes — quotes are retrieved, not generated.</strong> Every quote comes directly from the Elasticsearch index: Gemini searches the database, retrieves matching review documents, and copies the <code>comment</code> field text exactly. Gemini does not write or paraphrase quotes — it is explicitly instructed to only quote text present in the retrieved search results, and to use plain paraphrase (without quotation marks) if no verbatim match exists. This grounding in retrieved documents is why the architecture uses Elastic MCP search rather than relying on the LLM's memory alone.</div>
     </div>
 
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How accurate are the answers? <span class="arrow">▼</span></div>
-      <div class="faq-a">Answers are synthesized directly from real student reviews and always include verbatim quotes. The AI identifies patterns across many reviews — accuracy depends on how many reviews exist for the topic you ask about.</div>
+      <div class="faq-a">Answers are synthesized from retrieved student reviews and always include verbatim quotes from the database. Accuracy depends on how many reviews exist for the topic — well-covered professors and departments will yield stronger patterns. For niche questions with few reviews, treat answers as directional rather than definitive.</div>
     </div>
 
     <div class="faq-item">
@@ -432,11 +437,11 @@
     </div>
 
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">⚠️ What are the limitations? <span class="arrow">▼</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)">What are the limitations? <span class="arrow">▼</span></div>
       <div class="faq-a">
-        <strong>Data freshness:</strong> Reviews were collected in June 2026 and are not updated in real time. Answers reflect historical sentiment, not live student opinion.<br><br>
-        <strong>University coverage:</strong> Currently limited to 7 US universities (UTK, Vanderbilt, Georgia Tech, UF, Michigan, UCLA, Duke). Other institutions are not covered.<br><br>
-        <strong>Source bias:</strong> All data comes from Rate My Professors, which skews toward students with strong opinions (positive or negative). Silent majorities may be underrepresented.<br><br>
+        <strong>Selection bias:</strong> Rate My Professors attracts students with strong feelings — the satisfied middle often doesn't post. This means complaints may be overrepresented and praise may skew toward exceptional cases. Use CampusVoice to spot patterns and hear specific voices, not to compute a statistically representative satisfaction score.<br><br>
+        <strong>Data freshness:</strong> Reviews were collected in June 2026 and are not updated in real time. Answers reflect historical sentiment up to that point.<br><br>
+        <strong>University coverage:</strong> Currently limited to 7 US universities (UTK, Vanderbilt, Georgia Tech, UF, Michigan, UCLA, Duke).<br><br>
         <strong>Scope:</strong> Data covers professor quality, grading, workload, and course difficulty only — not housing, dining, sports, admissions, or campus life.
       </div>
     </div>
