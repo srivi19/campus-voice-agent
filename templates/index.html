@@ -167,10 +167,10 @@
 
 <!-- Page Nav -->
 <nav class="page-nav">
-  <button class="page-nav-btn active" onclick="showPage('chat')">💬 Chat</button>
-  <button class="page-nav-btn" onclick="showPage('demo')">🎬 Demo Video</button>
-  <button class="page-nav-btn" onclick="showPage('techstack')">🏗️ Tech Stack</button>
-  <button class="page-nav-btn" onclick="showPage('faq')">❓ FAQ</button>
+  <button class="page-nav-btn active" onclick="showPage('chat', this)">💬 Chat</button>
+  <button class="page-nav-btn" onclick="showPage('demo', this)">🎬 Demo Video</button>
+  <button class="page-nav-btn" onclick="showPage('techstack', this)">🏗️ Tech Stack</button>
+  <button class="page-nav-btn" onclick="showPage('faq', this)">❓ FAQ</button>
 </nav>
 
 <!-- ══════════ CHAT PAGE ══════════ -->
@@ -395,11 +395,11 @@
     document.getElementById("personaAdmin").classList.toggle("active", p === "admin");
   }
 
-  function showPage(name) {
+  function showPage(name, btn) {
     document.querySelectorAll(".page-section").forEach(s => s.classList.remove("active"));
     document.querySelectorAll(".page-nav-btn").forEach(b => b.classList.remove("active"));
     document.getElementById("page-" + name).classList.add("active");
-    event.target.classList.add("active");
+    btn.classList.add("active");
   }
 
   function toggleFaq(el) {
