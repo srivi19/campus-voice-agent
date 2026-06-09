@@ -31,6 +31,9 @@ def api_ask():
 
     question = data.get("question", "").strip()
     school = data.get("school") or None
+    persona = data.get("persona") or None        # "admin" or "student"
+    department = data.get("department") or None  # e.g. "Computer Science"
+    recent_only = data.get("recent_only", False) # bool
 
     if not question:
         return jsonify({"error": "No question provided"}), 400
@@ -38,9 +41,20 @@ def api_ask():
     if len(question) > 500:
         return jsonify({"error": "Question too long (max 500 characters)"}), 400
 
-    full_question = question
+    # Build prefixes
+    prefixes = []
     if school:
-        full_question = f"[Filter to {school} only] {question}"
+        prefixes.append(f"[Filter to {school} only]")
+    if persona == "admin":
+        prefixes.append("[ADMIN]")
+    elif persona == "student":
+        prefixes.append("[STUDENT]")
+    if department:
+        prefixes.append(f"[DEPT:{department}]")
+    if recent_only:
+        prefixes.append("[RECENT]")
+
+    full_question = " ".join(prefixes + [question])
 
     try:
         answer = ask(full_question)

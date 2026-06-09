@@ -107,6 +107,48 @@
     .top-bar { background: #060d18; border-bottom: 1px solid #1a3050; padding: 8px 24px; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
     .top-badge { display: flex; align-items: center; gap: 6px; background: #0d1f35; border: 1px solid #1e4060; color: #5a9ece; font-size: 11.5px; font-weight: 500; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
     .top-badge span { font-size: 13px; }
+
+    /* ── Filter Bar ── */
+    .filter-bar { max-width: 960px; margin: 0 auto; padding: 14px 20px 10px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid #1a3050; }
+    .filter-group { display: flex; align-items: center; gap: 8px; }
+    .filter-label { font-size: 11px; font-weight: 700; color: #4a7a9a; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+    .persona-btn { padding: 6px 14px; border-radius: 20px; border: 1px solid #2a5080; background: #0d1520; color: #5a8aaa; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .persona-btn:hover { border-color: #4a9ede; color: #90c4e8; }
+    .persona-btn.active { background: #1a3a5c; border-color: #4a9ede; color: #4a9ede; }
+    .dept-select { background: #0d1520; border: 1px solid #2a5080; color: #90c4e8; font-size: 12px; padding: 6px 10px; border-radius: 8px; cursor: pointer; outline: none; }
+    .dept-select:focus { border-color: #4a9ede; }
+    .recent-toggle { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+    .recent-toggle input[type="checkbox"] { width: 15px; height: 15px; accent-color: #4a9ede; cursor: pointer; }
+    .recent-toggle span { font-size: 12px; color: #5a8aaa; font-weight: 600; }
+    .recent-toggle:hover span { color: #90c4e8; }
+
+    /* ── Page Nav ── */
+    .page-nav { background: #060d18; border-bottom: 2px solid #1a3050; display: flex; justify-content: center; gap: 4px; padding: 0 24px; }
+    .page-nav-btn { padding: 14px 28px; font-size: 13px; font-weight: 600; color: #4a7a9a; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.02em; }
+    .page-nav-btn:hover { color: #90c4e8; }
+    .page-nav-btn.active { color: #4a9ede; border-bottom-color: #4a9ede; }
+
+    /* ── Page Sections ── */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* ── Demo Video ── */
+    .video-section { max-width: 860px; margin: 40px auto; padding: 0 24px 48px; }
+    .video-section h2 { font-size: 20px; font-weight: 700; color: #c0d8ee; margin-bottom: 8px; text-align: center; }
+    .video-section p { font-size: 13px; color: #4a7a9a; text-align: center; margin-bottom: 24px; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 14px; overflow: hidden; border: 2px solid #1a3050; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    /* ── FAQ ── */
+    .faq-section { max-width: 720px; margin: 40px auto; padding: 0 24px 48px; }
+    .faq-section h2 { font-size: 20px; font-weight: 700; color: #c0d8ee; margin-bottom: 24px; text-align: center; }
+    .faq-item { background: #0d1520; border: 1px solid #1a3050; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { padding: 16px 20px; font-size: 14px; font-weight: 600; color: #90c4e8; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
+    .faq-q:hover { background: #111f35; }
+    .faq-q .arrow { font-size: 11px; transition: transform 0.2s; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 20px 16px; font-size: 13px; color: #5a8aaa; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
   </style>
 </head>
 <body>
@@ -120,6 +162,17 @@
   <div class="top-badge"><span>🏫</span> 7 Universities</div>
   <div class="top-badge"><span>☁️</span> Google Cloud Run</div>
 </div>
+
+<!-- Page Nav -->
+<nav class="page-nav">
+  <button class="page-nav-btn active" onclick="showPage('chat')">💬 Chat</button>
+  <button class="page-nav-btn" onclick="showPage('demo')">🎬 Demo Video</button>
+  <button class="page-nav-btn" onclick="showPage('techstack')">🏗️ Tech Stack</button>
+  <button class="page-nav-btn" onclick="showPage('faq')">❓ FAQ</button>
+</nav>
+
+<!-- ══════════ CHAT PAGE ══════════ -->
+<div class="page-section active" id="page-chat">
 
 <!-- Hero -->
 <div class="hero">
@@ -149,6 +202,37 @@
     <div class="chip">📚 What do students say about workload at Duke?</div>
     <div class="chip">💻 What do CS students say at Georgia Tech?</div>
     <div class="chip">😓 What are the biggest complaints at Michigan?</div>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="filter-bar">
+  <div class="filter-group">
+    <span class="filter-label">👤 I am a</span>
+    <button class="persona-btn active" id="personaStudent" onclick="setPersona('student')">🎒 Student</button>
+    <button class="persona-btn" id="personaAdmin" onclick="setPersona('admin')">🏛️ Admin</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-label">📚 Department</span>
+    <select class="dept-select" id="deptSelect">
+      <option value="">All Departments</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Engineering">Engineering</option>
+      <option value="Biology">Biology</option>
+      <option value="Business">Business</option>
+      <option value="Mathematics">Mathematics</option>
+      <option value="Psychology">Psychology</option>
+      <option value="English">English</option>
+      <option value="Physics">Physics</option>
+      <option value="Chemistry">Chemistry</option>
+      <option value="Economics">Economics</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label class="recent-toggle">
+      <input type="checkbox" id="recentOnly">
+      <span>🕐 Recent only (2023+)</span>
+    </label>
   </div>
 </div>
 
@@ -220,6 +304,80 @@
   </div>
 </div>
 
+</div><!-- end page-chat -->
+
+<!-- ══════════ DEMO VIDEO PAGE ══════════ -->
+<div class="page-section" id="page-demo">
+  <div class="video-section">
+    <h2>🎬 Demo Video</h2>
+    <p>Watch CampusVoice in action — asking real questions about professors, grading, and workload across 7 universities.</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/lHa5NiEh6cQ" title="CampusVoice Demo"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TECH STACK PAGE ══════════ -->
+<div class="page-section" id="page-techstack">
+  <div class="video-section">
+    <h2>🏗️ Tech Stack &amp; Architecture</h2>
+    <p>How CampusVoice is built — data pipeline, agent loop, and deployment.</p>
+    <div style="border-radius:14px; overflow:hidden; border:2px solid #1a3050; box-shadow:0 8px 32px rgba(0,0,0,0.5); height:780px;">
+      <iframe src="/static/architecture.pdf" width="100%" height="100%" style="border:none;"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FAQ PAGE ══════════ -->
+<div class="page-section" id="page-faq">
+  <div class="faq-section">
+    <h2>❓ Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What data does CampusVoice use? <span class="arrow">▼</span></div>
+      <div class="faq-a">CampusVoice uses 6,700+ real student reviews from Rate My Professors, covering professor quality, grading, course difficulty, and teaching style across 7 US universities.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Which universities are covered? <span class="arrow">▼</span></div>
+      <div class="faq-a">University of Tennessee Knoxville (UTK), Vanderbilt University, Georgia Institute of Technology, University of Florida, University of Michigan, UCLA, and Duke University.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I ask about a specific professor? <span class="arrow">▼</span></div>
+      <div class="faq-a">Yes! Try asking "Is Professor [Last Name] good at [University]?" and CampusVoice will search for reviews of that specific professor.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How accurate are the answers? <span class="arrow">▼</span></div>
+      <div class="faq-a">Answers are synthesized directly from real student reviews and always include verbatim quotes. The AI identifies patterns across many reviews — accuracy depends on how many reviews exist for the topic you ask about.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How current is the data? <span class="arrow">▼</span></div>
+      <div class="faq-a">The reviews were collected in June 2026 from Rate My Professors. Data is not updated in real time but reflects the most recent reviews available at collection time.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I compare two universities? <span class="arrow">▼</span></div>
+      <div class="faq-a">Yes! On the All Universities tab, try asking "How does grading at Vanderbilt compare to Georgia Tech?" and CampusVoice will search both schools and give a side-by-side summary.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is this free to use? <span class="arrow">▼</span></div>
+      <div class="faq-a">Yes, CampusVoice is completely free. It was built for the Google Cloud Rapid Agent Hackathon 2026.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How does it work technically? <span class="arrow">▼</span></div>
+      <div class="faq-a">Your question is sent to Gemini 2.5 Flash, which uses the Elastic MCP Server to search an Elasticsearch index of student reviews. Gemini reads the results, identifies patterns, and writes a synthesized answer with real quotes — all in one agent loop.</div>
+    </div>
+
+  </div>
+</div>
+
 <footer>
   <div>Built by <strong style="color:#4a80aa">Vi (Srividya Narayanan)</strong> · <a href="https://github.com/srivi19/campus-voice-agent" target="_blank">GitHub</a></div>
   <div>🏆 <a href="https://devpost.com" target="_blank">Google Cloud Rapid Agent Hackathon 2026</a> · Partner Track: <strong style="color:#4a80aa">Elastic 🔍</strong></div>
@@ -227,6 +385,25 @@
 </footer>
 
 <script>
+  let selectedPersona = "student";
+
+  function setPersona(p) {
+    selectedPersona = p;
+    document.getElementById("personaStudent").classList.toggle("active", p === "student");
+    document.getElementById("personaAdmin").classList.toggle("active", p === "admin");
+  }
+
+  function showPage(name) {
+    document.querySelectorAll(".page-section").forEach(s => s.classList.remove("active"));
+    document.querySelectorAll(".page-nav-btn").forEach(b => b.classList.remove("active"));
+    document.getElementById("page-" + name).classList.add("active");
+    event.target.classList.add("active");
+  }
+
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle("open");
+  }
+
   let selectedSchool = "";
 
   const CHIPS_BY_SCHOOL = {
@@ -372,7 +549,13 @@
       const res = await fetch("/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, school: selectedSchool || null }),
+        body: JSON.stringify({
+          question,
+          school: selectedSchool || null,
+          persona: selectedPersona,
+          department: document.getElementById("deptSelect").value || null,
+          recent_only: document.getElementById("recentOnly").checked,
+        }),
       });
       const data = await res.json();
       removeTyping();
