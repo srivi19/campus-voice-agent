@@ -51,7 +51,14 @@ TEMPORAL FILTER — check the question for this prefix:
 
 
 You have access to an Elasticsearch index called 'campus_reviews' containing real student
-reviews from Rate My Professors for 7 universities.
+reviews from three sources:
+- Rate My Professors (professor ratings with avg_rating, difficulty_rating, etc.)
+- Reddit (posts from university subreddits; source="reddit", avg_rating=null)
+- College Confidential (forum posts from talk.collegeconfidential.com; source="college_confidential", avg_rating=null)
+For Reddit and College Confidential posts, the 'comment' field contains the post text.
+Skip avg_rating for these — use the content of 'comment' to extract sentiment instead.
+College Confidential posts often discuss course difficulty, professor experiences, and
+academic workload from a pre-college or current-student perspective.
 
 SCHOOL TAGS:
 - University of Tennessee Knoxville → school_tag: "utk"

@@ -15,8 +15,10 @@ import google.genai.types as types
 load_dotenv()
 
 INDEX_NAME = "campus_reviews"
-DATA_PATHS = ["data/reviews.json"]
-BATCH_SIZE = 20  # embeddings per API call
+DATA_PATHS = ["data/reviews.json", "data/reddit_posts.json", "data/niche_reviews.json", "data/cc_posts.json"]
+BATCH_SIZE = 10  # smaller batches reduce 429 risk
+SLEEP_BETWEEN_BATCHES = 2.0  # seconds between embedding calls
+MAX_RETRIES = 5
 EMBEDDING_MODEL = "models/gemini-embedding-2"
 
 
@@ -32,13 +34,30 @@ def get_gemini_client():
 
 
 def generate_embeddings(client, texts):
-    """Generate embeddings for a batch of texts using Gemini."""
+    """Generate embeddings with exponential backoff on 429."""
     contents = [types.Content(parts=[types.Part(text=text)]) for text in texts]
-    result = client.models.embed_content(
-        model=EMBEDDING_MODEL,
-        contents=contents,
-    )
-    return [e.values for e in result.embeddings]
+    delay = 10
+    for attempt in range(MAX_RETRIES):
+        try:
+            result = client.models.embed_content(
+                model=EMBEDDING_MODEL,
+                contents=contents,
+            )
+            return [e.values for e in result.embeddings]
+        except Exception as e:
+            msg = str(e)
+            if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+                if attempt < MAX_RETRIES - 1:
+                    print(f"  429 rate limit — waiting {delay}s then retrying...")
+                    time.sleep(delay)
+                    delay = min(delay * 2, 120)
+                else:
+                    print(f"  429 after {MAX_RETRIES} attempts — skipping batch")
+                    return None
+            else:
+                print(f"  Embedding error: {e} — skipping batch")
+                return None
+    return None
 
 
 def build_doc_text(review):
@@ -78,10 +97,8 @@ def ingest():
         texts = [build_doc_text(r) for r in batch]
 
         print(f"  Embedding batch {i//BATCH_SIZE + 1}/{(total + BATCH_SIZE - 1)//BATCH_SIZE}...")
-        try:
-            embeddings = generate_embeddings(gemini, texts)
-        except Exception as e:
-            print(f"  Embedding error: {e} — skipping batch")
+        embeddings = generate_embeddings(gemini, texts)
+        if embeddings is None:
             embeddings = [None] * len(batch)
 
         for review, embedding in zip(batch, embeddings):
@@ -93,7 +110,7 @@ def ingest():
                 "_source": doc,
             })
 
-        time.sleep(0.5)  # avoid rate limits
+        time.sleep(SLEEP_BETWEEN_BATCHES)
 
     print(f"\nIndexing {len(actions)} documents into Elasticsearch...")
     success, errors = helpers.bulk(es, actions, raise_on_error=False)
