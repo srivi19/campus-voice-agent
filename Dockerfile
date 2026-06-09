@@ -23,4 +23,5 @@ ENV PORT=8080
 
 EXPOSE 8080
 
-CMD ["python", "server.py"]
+# Use gunicorn for production (1 worker — MCP client is per-request, not thread-safe)
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "1", "--timeout", "120", "server:app"]
