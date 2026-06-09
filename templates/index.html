@@ -120,10 +120,23 @@
     footer a { color: #4a80aa; text-decoration: none; }
     footer a:hover { color: #6aaad0; }
 
-    /* ── Top header bar ── */
-    .top-bar { background: #060d18; border-bottom: 1px solid #1a3050; padding: 8px 24px; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .top-badge { display: flex; align-items: center; gap: 6px; background: #0d1f35; border: 1px solid #1e4060; color: #5a9ece; font-size: 11.5px; font-weight: 500; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
-    .top-badge span { font-size: 13px; }
+    /* ── Site Header ── */
+    .site-header { position: sticky; top: 0; z-index: 100; background: #060d18; border-bottom: 2px solid #1a3050; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 54px; }
+    .header-brand { display: flex; align-items: center; gap: 8px; }
+    .header-logo { font-size: 20px; }
+    .header-title { font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+    .header-title span { color: #4a9ede; }
+    .hamburger { display: none; background: none; border: 1px solid #1a3050; border-radius: 6px; color: #90c4e8; font-size: 18px; padding: 6px 10px; cursor: pointer; line-height: 1; }
+    .mobile-nav { display: none; background: #060d18; border-bottom: 2px solid #1a3050; flex-direction: column; padding: 6px 12px 10px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav-btn { background: none; border: none; color: #4a7a9a; font-size: 14px; font-weight: 600; padding: 12px 14px; text-align: left; cursor: pointer; border-radius: 8px; transition: all 0.15s; }
+    .mobile-nav-btn:hover { background: #0d1520; color: #90c4e8; }
+    .mobile-nav-btn.active { color: #4a9ede; background: #0d1f35; }
+    @media (max-width: 600px) {
+      .page-nav { display: none !important; }
+      .hamburger { display: block; }
+      .header-title { font-size: 15px; }
+    }
 
     /* ── Filter Bar ── */
     .filter-bar { max-width: 960px; margin: 0 auto; padding: 14px 20px 10px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; border-bottom: 1px solid #1a3050; }
@@ -139,9 +152,9 @@
     .recent-toggle span { font-size: 12px; color: #5a8aaa; font-weight: 600; }
     .recent-toggle:hover span { color: #90c4e8; }
 
-    /* ── Page Nav ── */
-    .page-nav { position: sticky; top: 0; z-index: 100; background: #060d18; border-bottom: 2px solid #1a3050; display: flex; justify-content: center; gap: 4px; padding: 0 24px; }
-    .page-nav-btn { padding: 14px 28px; font-size: 13px; font-weight: 600; color: #4a7a9a; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; letter-spacing: 0.02em; }
+    /* ── Page Nav (desktop, inside site-header) ── */
+    .page-nav { display: flex; gap: 0; }
+    .page-nav-btn { padding: 0 18px; font-size: 13px; font-weight: 600; color: #4a7a9a; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap; height: 54px; }
     .page-nav-btn:hover { color: #90c4e8; }
     .page-nav-btn.active { color: #4a9ede; border-bottom-color: #4a9ede; }
 
@@ -170,23 +183,28 @@
 </head>
 <body>
 
-<!-- Top bar -->
-<div class="top-bar">
-  <div class="top-badge"><span>⚡</span> Gemini 2.5</div>
-  <div class="top-badge"><span>🔍</span> Elastic MCP Search</div>
-  <div class="top-badge"><span>🎓</span> Rate My Professors</div>
-  <div class="top-badge"><span>📊</span> Real Student Reviews</div>
-  <div class="top-badge"><span>🏫</span> 7 Universities</div>
-  <div class="top-badge"><span>☁️</span> Google Cloud Run</div>
-</div>
+<!-- Unified Sticky Header -->
+<header class="site-header">
+  <div class="header-brand">
+    <span class="header-logo">🎓</span>
+    <span class="header-title">Campus<span>Voice</span></span>
+  </div>
+  <nav class="page-nav">
+    <button class="page-nav-btn active" data-page="chat" onclick="showPage('chat')">💬 Chat</button>
+    <button class="page-nav-btn" data-page="demo" onclick="showPage('demo')">🎬 Demo</button>
+    <button class="page-nav-btn" data-page="techstack" onclick="showPage('techstack')">🏗️ Tech Stack</button>
+    <button class="page-nav-btn" data-page="faq" onclick="showPage('faq')">❓ FAQ</button>
+  </nav>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+</header>
 
-<!-- Page Nav -->
-<nav class="page-nav">
-  <button class="page-nav-btn active" onclick="showPage('chat', this)">💬 Chat</button>
-  <button class="page-nav-btn" onclick="showPage('demo', this)">🎬 Demo Video</button>
-  <button class="page-nav-btn" onclick="showPage('techstack', this)">🏗️ Tech Stack</button>
-  <button class="page-nav-btn" onclick="showPage('faq', this)">❓ FAQ</button>
-</nav>
+<!-- Mobile Nav Dropdown -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-btn active" data-page="chat" onclick="showPage('chat')">💬 Chat</button>
+  <button class="mobile-nav-btn" data-page="demo" onclick="showPage('demo')">🎬 Demo Video</button>
+  <button class="mobile-nav-btn" data-page="techstack" onclick="showPage('techstack')">🏗️ Tech Stack</button>
+  <button class="mobile-nav-btn" data-page="faq" onclick="showPage('faq')">❓ FAQ</button>
+</div>
 
 <!-- ══════════ CHAT PAGE ══════════ -->
 <div class="page-section active" id="page-chat">
@@ -329,16 +347,6 @@
   </div>
 </div>
 
-<!-- How it works -->
-<div class="how-section">
-  <div class="section-label">⚙️ How it works</div>
-  <div class="steps">
-    <div class="step"><div class="step-box"><div class="step-icon">🎓</div><p>Reviews from Rate My Professors</p></div><div class="arrow">→</div></div>
-    <div class="step"><div class="step-box"><div class="step-icon">🧠</div><p>Indexed in Elasticsearch via Elastic Cloud</p></div><div class="arrow">→</div></div>
-    <div class="step"><div class="step-box"><div class="step-icon">🔍</div><p>Elastic MCP server searches on demand</p></div><div class="arrow">→</div></div>
-    <div class="step"><div class="step-box"><div class="step-icon">💡</div><p>Gemini synthesizes patterns & quotes</p></div></div>
-  </div>
-</div>
 
 </div><!-- end page-chat -->
 
@@ -360,6 +368,18 @@
   <div class="video-section">
     <h2>🏗️ Tech Stack &amp; Architecture</h2>
     <p>How CampusVoice is built — data pipeline, agent loop, and deployment.</p>
+
+    <!-- How it works (moved from Chat page) -->
+    <div class="how-section" style="border-top:none; margin-bottom:28px;">
+      <div class="section-label">⚙️ How it works</div>
+      <div class="steps">
+        <div class="step"><div class="step-box"><div class="step-icon">🎓</div><p>Reviews from Rate My Professors</p></div><div class="arrow">→</div></div>
+        <div class="step"><div class="step-box"><div class="step-icon">🧠</div><p>Indexed in Elasticsearch via Elastic Cloud</p></div><div class="arrow">→</div></div>
+        <div class="step"><div class="step-box"><div class="step-icon">🔍</div><p>Elastic MCP server searches on demand</p></div><div class="arrow">→</div></div>
+        <div class="step"><div class="step-box"><div class="step-icon">💡</div><p>Gemini synthesizes patterns &amp; quotes</p></div></div>
+      </div>
+    </div>
+
     <div style="border-radius:14px; overflow:hidden; border:2px solid #1a3050; box-shadow:0 8px 32px rgba(0,0,0,0.5); height:780px;">
       <iframe src="/static/architecture.pdf" width="100%" height="100%" style="border:none;"></iframe>
     </div>
@@ -429,12 +449,28 @@
     document.getElementById("personaAdmin").classList.toggle("active", p === "admin");
   }
 
-  function showPage(name, btn) {
+  function showPage(name) {
     document.querySelectorAll(".page-section").forEach(s => s.classList.remove("active"));
-    document.querySelectorAll(".page-nav-btn").forEach(b => b.classList.remove("active"));
     document.getElementById("page-" + name).classList.add("active");
-    btn.classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Sync active state on both desktop + mobile nav
+    document.querySelectorAll(".page-nav-btn, .mobile-nav-btn").forEach(b => {
+      b.classList.toggle("active", b.dataset.page === name);
+    });
+    // Close mobile menu
+    document.getElementById("mobileNav").classList.remove("open");
+    if (name === "chat") {
+      setTimeout(() => {
+        const input = document.getElementById("questionInput");
+        input.scrollIntoView({ behavior: "smooth", block: "center" });
+        input.focus();
+      }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  function toggleMenu() {
+    document.getElementById("mobileNav").classList.toggle("open");
   }
 
   function toggleFaq(el) {
