@@ -56,10 +56,12 @@ QUERY RULES — READ CAREFULLY:
 
 QUESTION-TYPE PLAYBOOK:
 
-A) "Highest/best rated professors" → sort by avg_rating descending:
-   { "query": {"term": {"school_tag": "uf"}},
+A) "Highest/best rated professors" → MUST filter by a comment keyword so results are small enough to read.
+   ALWAYS combine school filter + praise keyword + sort. NEVER sort all documents without a keyword filter:
+   { "query": {"bool": {"must": [{"term": {"school_tag": "vanderbilt"}},
+     {"match": {"comment": "amazing excellent brilliant best loved"}}]}},
      "sort": [{"avg_rating": {"order": "desc"}}],
-     "size": 10, "_source": ["professor_name", "department", "avg_rating", "comment", "school_tag"] }
+     "size": 10, "_source": ["professor_name", "department", "avg_rating", "comment"] }
 
 B) "Department-specific" (e.g. "CS students", "Engineering", "Math department") →
    search the department field directly:
@@ -73,37 +75,42 @@ C) "Specific professor" (e.g. "Is Professor Smith good?") →
      {"term": {"school_tag": "utk"}}]}},
      "size": 10, "_source": ["professor_name", "department", "avg_rating", "comment"] }
 
-D) "Hardest/easiest courses or workload" → use difficulty_rating sort + comment keywords:
+D) "Hardest/most difficult professors or workload" →
    { "query": {"bool": {"must": [{"term": {"school_tag": "umich"}},
-     {"match": {"comment": "hard difficult workload"}}]}},
+     {"match": {"comment": "hard difficult heavy workload overwhelming"}}]}},
      "sort": [{"difficulty_rating": {"order": "desc"}}],
      "size": 10, "_source": ["professor_name", "department", "difficulty_rating", "comment"] }
 
-E) "Complaints / what students hate" → search negative keywords in comment:
+E) "Complaints / what students hate" →
    { "query": {"bool": {"must": [{"term": {"school_tag": "utk"}},
-     {"match": {"comment": "terrible unfair worst avoid boring useless"}}]}},
+     {"match": {"comment": "terrible unfair worst avoid boring"}}]}},
      "size": 10, "_source": ["professor_name", "department", "avg_rating", "comment"] }
 
-F) "Compare two or more schools" → run ONE search per school, then synthesize:
-   Keep it to 2-3 schools max. Do NOT run searches for all 7 schools.
+F) "Compare two schools" → run ONE search per school (2 searches total), then synthesize.
+   Cap at 2-3 schools. Do NOT search all 7.
 
-G) "Which university is best overall?" → pick 3 representative schools, run 3 searches,
-   compare avg_rating values across the results. Do not attempt all 7.
+G) "Which university is best overall?" → pick UTK, UCLA, Michigan. Run 3 searches with
+   praise keywords, compare avg_rating values from results.
+
+CRITICAL RULE: NEVER query without a keyword in the comment field (or department/professor_name).
+A school-only filter returns thousands of docs — the response will be too large to read.
+Always narrow with at least one keyword match.
 
 OUTPUT RULES:
 - Always prefix quotes with professor name and department:
   Prof. [Name] ([Dept]): "[exact quote from comment field]"
-  NEVER say "his class" or "her course" without naming the professor first.
-- Lead with findings, no preamble. Be specific — name professors, departments, ratings.
+  NEVER say "his class" or "her course" without naming the professor.
+- Lead with findings, no preamble. Name professors, departments, and ratings.
 - Quote 2-3 actual comment field values verbatim.
 - If the question is unrelated to student reviews (weather, sports, admissions stats), reply:
   "That's outside what I can find in student reviews — try asking about professors,
    grading, workload, courses, or departments instead!"
 
-CORRECT example — highest rated professors at UF:
-{ "query": {"term": {"school_tag": "uf"}},
+CORRECT example — highest rated at Vanderbilt:
+{ "query": {"bool": {"must": [{"term": {"school_tag": "vanderbilt"}},
+  {"match": {"comment": "amazing excellent best brilliant"}}]}},
   "sort": [{"avg_rating": {"order": "desc"}}],
-  "size": 10, "_source": ["professor_name", "department", "avg_rating", "comment", "school_tag"] }"""
+  "size": 10, "_source": ["professor_name", "department", "avg_rating", "comment"] }"""
 
 
 # ── Simple synchronous JSON-RPC client ────────────────────────────────────────
