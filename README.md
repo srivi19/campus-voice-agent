@@ -56,13 +56,13 @@ UTK · Vanderbilt · Georgia Tech · University of Florida · University of Mich
 
 | Layer | Technology |
 |-------|-----------|
-| LLM | Google Gemini 2.5 Flash |
-| Search & Storage | [Elasticsearch Serverless (Elastic Cloud)](https://www.elastic.co/cloud) |
-| MCP Tool Layer | [@elastic/mcp-server-elasticsearch](https://github.com/elastic/mcp-server-elasticsearch) |
-| Web Framework | Flask |
-| Data Sources | Rate My Professors (GraphQL API), College Confidential (Discourse JSON API) |
+| LLM | Google Gemini (accessed via the `google-genai` Python client) |
+| Search & Storage | Elasticsearch (Elastic Cloud Serverless) |
+| MCP Tool Layer | `@elastic/mcp-server-elasticsearch` (Node.js MCP server spawned as a subprocess) |
+| Web Framework | Flask (production via Gunicorn) |
+| Runtime | Python 3.11 and Node.js 20 (Node required for the MCP server) |
+| Data Sources | Rate My Professors (GraphQL), College Confidential (Discourse API) |
 | Deployment | Google Cloud Run (Docker) |
-| Language | Python 3.11 |
 
 ---
 

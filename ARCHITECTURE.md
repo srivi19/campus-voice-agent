@@ -7,7 +7,7 @@
 
 ## Overview
 
-CampusVoice is an agentic AI app that answers natural-language questions about university professors and campus life using real student review data. It combines a Gemini LLM with an Elasticsearch backend via the Model Context Protocol (MCP).
+CampusVoice is an agentic AI app that answers natural-language questions about university professors and campus life using real student review data. It combines Google Gemini (accessed via the `google-genai` Python client) with an Elasticsearch backend via the Model Context Protocol (MCP).
 
 ```
 User → Flask API → Gemini Agent → Elastic MCP Server → Elasticsearch
@@ -32,7 +32,7 @@ A single-page app served by Flask. Users select a university tab, type a questio
 
 - University tabs: UTK, Vanderbilt, Georgia Tech, UF, Michigan, UCLA, Duke
 - Suggested questions per university (professor ratings, grading, workload, course difficulty)
-- Data source badges: Gemini 2.5, Elastic MCP Search, Rate My Professors, Google Cloud Run
+-- Data source badges: Google Gemini, Elastic MCP Search, Rate My Professors, Google Cloud Run
 
 ### 2. Flask API Server (`server.py`)
 Thin HTTP layer with three endpoints:
@@ -48,7 +48,7 @@ Validates input, optionally prefixes the question with a school filter, calls th
 ### 3. Gemini Agent (`agent_mcp.py`)
 The core reasoning layer. Runs a multi-turn function-calling loop:
 
-1. Sends the user question + system prompt to Gemini 2.5 Flash
+1. Sends the user question + system prompt to Google Gemini (via the `google-genai` client)
 2. Gemini decides which Elasticsearch search to run (via function calling)
 3. The MCP client executes the search and returns results
 4. Gemini synthesizes the results into a final answer
@@ -159,7 +159,7 @@ ELASTICSEARCH_API_KEY  — Elastic Cloud API key
    - Handshakes over stdio JSON-RPC
    - Fetches available tools
 
-5. Gemini 2.5 Flash receives question + tool definitions
+5. Google Gemini (via the `google-genai` client) receives question + tool definitions
    → Decides to search for top-rated professor content
    → Query: { school_tag: "umich", match: { comment: "amazing best loved" }, size: 10 }
 
@@ -177,7 +177,7 @@ ELASTICSEARCH_API_KEY  — Elastic Cloud API key
 ## Key Design Choices
 
 **Why MCP instead of direct Elasticsearch SDK?**
-The Elastic MCP server is an official Elastic tool and satisfies the hackathon's Elastic partner track requirement. It also lets Gemini express queries in natural language rather than requiring hand-crafted ES DSL.
+The Elastic MCP server is an official Elastic tool and satisfies the hackathon's Elastic partner track requirement. It also lets Google Gemini express queries in natural language rather than requiring hand-crafted ES DSL.
 
 **Why subprocess instead of MCP SDK?**
 The official MCP Python SDK uses async I/O which conflicts with Flask's sync request handling. A direct JSON-RPC-over-stdio client is simpler, synchronous, and more reliable in a containerized environment.
