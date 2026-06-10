@@ -39,7 +39,7 @@ class FlowDiagram(Flowable):
     def draw(self):
         c = self.canv
         boxes = [
-            ("RMP", "Rate My\nProfessors"),
+            ("Data", "RMP +\nColl. Conf."),
             ("ES", "Elasticsearch\nServerless"),
             ("MCP", "Elastic MCP\nServer"),
             ("AI", "Gemini 2.5\nFlash"),
@@ -142,8 +142,9 @@ story.append(HRFlowable(width="100%", thickness=1, color=MID_BLUE, spaceAfter=16
 story.append(Paragraph("What It Does", section_style))
 story.append(Paragraph(
     "CampusVoice lets students, counselors, and administrators ask plain-English questions about "
-    "university professors and courses — and get synthesized answers with real quotes from "
-    "<b>6,773 Rate My Professors reviews</b> across 7 US universities.",
+    "university professors and courses — and get synthesized answers with real quotes drawn from "
+    "<b>13,192 student reviews</b> — 6,773 from Rate My Professors and 6,419 from College Confidential — "
+    "across 7 US universities.",
     body_style))
 
 story.append(Paragraph("Data Flow Pipeline", section_style))
@@ -165,7 +166,7 @@ story.append(make_table([
     ["Web Framework",    "Flask + Gunicorn — REST API serving the HTML/JS frontend"],
     ["Deployment",       "Google Cloud Run — containerized, auto-scales to zero, 120s timeout"],
     ["CI/CD",            "Google Cloud Build — auto-deploys from GitHub main on every push"],
-    ["Data Collection",  "Rate My Professors GraphQL API — 6,700+ reviews, 7 universities"],
+    ["Data Collection",  "Rate My Professors (GraphQL API) + College Confidential (Discourse API) — 13,192 total"],
     ["Container",        "Docker — Python 3.11-slim + Node.js 20 + Elastic MCP server bundled"],
 ], [1.8*inch, 4.5*inch]))
 
@@ -211,10 +212,6 @@ links_text = (
     "<b>Devpost:</b> https://devpost.com/software/campusvoice"
 )
 story.append(Paragraph(links_text, small_style))
-
-doc.build(story, onFirstPage=header_canvas, onLaterPages=header_canvas)
-print(f"Created: {output_path}")
-pend(Paragraph(links_text, small_style))
 
 doc.build(story, onFirstPage=header_canvas, onLaterPages=header_canvas)
 print(f"Created: {output_path}")
